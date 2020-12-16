@@ -1,0 +1,46 @@
+@import 'variables';
+
+.nav-tabs {
+
+	&.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination { // CCL-991
+		display: none;
+	}
+
+	border-bottom: none !important;
+
+	&__link {
+		user-select: none;
+		color: $color_white;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1.5;
+
+		&.mat-tab-link {
+			min-width: auto;
+			padding: 0 $separation-16;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	.mat-tab-label-active {
+		opacity: 1;
+	}
+
+	&.mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
+	&.mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
+		background-color: transparent;
+	}
+
+	&.mat-tab-nav-bar.mat-primary .mat-tab-links .mat-ink-bar {
+		height: 2px;
+		background-color: $color_white;
+	}
+
+	.mat-ink-bar {
+		background-color: $color_white !important;
+	}
+
+}

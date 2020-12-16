@@ -1,0 +1,31 @@
+<div class="dialog-simple"
+		 [ngClass]="{'dialog-simple__align-left': data.textAlign === 'left', 'dialog-simple__align-center': data.textAlign === 'center'}">
+	<mat-icon [fontIcon]="data.icon"
+						*ngIf="data.icon"
+						class="dialog-simple__icon"></mat-icon>
+	<h2 mat-dialog-title
+			class="dialog-simple__title utils--truncate"
+			*ngIf="data.title">{{ data.title }}</h2>
+	<h3 mat-dialog-title
+			class="dialog-simple__subtitle utils--truncate"
+			*ngIf="data.subtitle">{{ data.subtitle }}</h3>
+	<mat-dialog-content class="dialog-simple__description"
+											*ngIf="data.description">{{ data.description }}
+	</mat-dialog-content>
+	<mat-dialog-actions align="end"
+											class="dialog-simple__actions">
+		<button mat-button
+						*ngIf="data.showCancelButton === undefined || data.showCancelButton === true"
+						mat-dialog-close
+						class="dialog-simple__button dialog-simple__button--cancel utils--uppercase"
+						(click)="onCancelClick()">
+			{{'BUTTONS.CANCEL' | translate}}
+		</button>
+		<button mat-button
+						*ngFor="let action of data.actions"
+						class="dialog-simple__button dialog-simple__button--accept utils--uppercase"
+						(click)="onActionClick(action.id)">
+			{{ action.label }}
+		</button>
+	</mat-dialog-actions>
+</div>

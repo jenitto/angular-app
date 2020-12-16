@@ -1,0 +1,46 @@
+@import 'variables';
+
+$block: "sidenav-toolbar";
+
+.#{$block} {
+
+	&__container {
+		padding-right: 12px;
+		padding-left: 4px;
+	}
+
+	&__close-button {
+		color: $color_grey_700;
+		height: 48px;
+		margin-right: 20px;
+		width: 48px;
+	}
+
+	&__title {
+		color: $color_grey_700;
+		font-family: Lato;
+		font-size: 16px;
+		line-height: 1.19;
+		user-select: none;
+	}
+
+	&__buttons{
+		margin-left: auto;
+	}
+
+	&__button {
+		margin-left: 20px;
+	}
+
+	&__loading-bar {
+		position: absolute;
+		z-index: 10;
+	}
+
+	&__button--title{ 
+		display: flex;
+		width: 100%;
+		align-items: center;
+	}
+
+}

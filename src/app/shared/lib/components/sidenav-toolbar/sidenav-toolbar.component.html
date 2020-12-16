@@ -1,0 +1,35 @@
+<div class="sidenav-toolbar">
+	<mat-toolbar class="sidenav-toolbar__container">
+		<div class="sidenav-toolbar__button--title">
+			<div>
+				<button type="button"
+								[tabIndex]="tabIndex"
+								mat-icon-button
+								class="sidenav-toolbar__close-button"
+								(click)="onClose()">
+					<mat-icon fontIcon="icon-cross"></mat-icon>
+				</button>
+			</div>
+			<div class="utils--truncate">
+				<span class="sidenav-toolbar__title utils--uppercase">
+					<ng-content select="[title]"></ng-content>
+				</span>
+			</div>
+			<div class="sidenav-toolbar__buttons">
+				<ng-container *ngFor="let button of actions">
+					<button *ngIf="!button.hide"
+									[disabled]="button.disabled"
+									mat-flat-button
+									color="primary"
+									class="sidenav-toolbar__button utils--uppercase"
+									(click)="onAction(button.method)">{{button.label}}</button>
+				</ng-container>
+			</div>
+		</div>
+
+	</mat-toolbar>
+	<mat-divider *ngIf="!hideDivider"></mat-divider>
+	<mat-progress-bar class="sidenav-toolbar__loading-bar"
+										mode="indeterminate"
+										*ngIf="isLoading"></mat-progress-bar>
+</div>

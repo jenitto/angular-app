@@ -1,0 +1,17 @@
+@import 'variables';
+
+$block: "nav-options";
+
+.#{$block} {
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&__menu-options{
+		min-width: 356px !important;
+		max-width: 370px !important;
+		overflow: hidden !important;
+	}
+
+}

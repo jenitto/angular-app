@@ -14,14 +14,23 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
+### Traducciones
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+**Generar archivo para enviar a traducir**
 
-## Running end-to-end tests
+Para generar las cadenas pendientes de traducir hay que lanzar el siguiente comando, y este nos generará en src/scripts/i18n el archivo valuesToTranslate.json, que será enviado a traducir.
+```
+npm run i18n-diff
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+**Insertar las cadenas traducidas**
 
-## Further help
+Una vez tengamos el fichero valuesToTranslate.json traducido al inglés, lo colocaremos en el mismo sitio de donde se ha generado y utilizaremos el siguiente comando para que automáticamente inserte las cadenas traducidas en el fichero de traducciones.
+```
+npm run i18n-merge
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Después de este paso es necesario reordenar alfabéticamente utilizando la extensión de vscode "Sort JSON objects":
+```
+Shift+Ctrl+P: Sort JSON
+```

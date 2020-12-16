@@ -1,0 +1,39 @@
+@import 'variables';
+
+$block: 'reload-app-dialog';
+
+.#{$block} {
+	font-family: Lato;
+
+	&__title {
+		color: $color_black;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.2;
+		margin-bottom: $separation-16;
+	}
+
+	&__description {
+		color: $color_grey_600;
+		font-size: 16px;
+		line-height: 1.5;
+		min-height: 72px;
+	}
+
+	&__actions {
+		margin: 0 (-$separation-24) (-$separation-24) (-$separation-24);
+		padding: 8px;
+
+		.#{$block}__button {
+			font-size: 14px;
+			font-weight: 500;
+			padding: 0 $separation-16;
+			margin: 0;
+			min-width: auto;
+
+			&--accept {
+				color: $color_primary;
+			}
+		}
+	}
+}

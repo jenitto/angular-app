@@ -1,0 +1,16 @@
+<div class="reload-app-dialog">
+	<h2 mat-dialog-title
+	    class="reload-app-dialog__title">{{ 'PERMISSIONS_CHANGE_MODAL.TITLE' | translate}}</h2>
+	<mat-dialog-content class="reload-app-dialog__description">
+		{{ 'PERMISSIONS_CHANGE_MODAL.DESCRIPTION' | translate }}
+	</mat-dialog-content>
+	<mat-dialog-actions align="end"
+	                    class="reload-app-dialog__actions">
+		<button mat-button
+		        color="primary"
+		        class="reload-app-dialog__button reload-app-dialog__button--accept utils--uppercase"
+		        (click)="onReload()">
+			{{ 'PERMISSIONS_CHANGE_MODAL.BUTTONS.RELOAD' | translate }}
+		</button>
+	</mat-dialog-actions>
+</div>

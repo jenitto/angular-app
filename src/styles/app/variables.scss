@@ -1,0 +1,68 @@
+//Variables para márgenes y paddings
+$separation-4: 4px;
+$separation-8: 8px;
+$separation-12: 12px;
+$separation-16: 16px;
+$separation-20: 20px;
+$separation-24: 24px;
+$separation-28: 28px;
+$separation-32: 32px;
+$separation-36: 36px;
+$separation-40: 40px;
+$separation-44: 44px;
+$separation-48: 48px;
+$separation-52: 52px;
+$separation-56: 56px;
+$separation-60: 60px;
+$separation-72: 72px;
+$separation-80: 80px;
+$separation-100: 100px;
+
+//Sombras
+$shadow: 0 0 8px 0 rgba(0, 0, 0, 0.16);
+$shadow-hover: 0 0 14px 0 rgba(0, 0, 0, 0.26);
+$shadow-navbar: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+
+//Colores
+$color_black: #000000;
+$color_menu-button_hover: #d4d4d4;
+$color_error: #b00020;
+$color_fileUploader_check:#a4d657;
+$color_grey_900: #1a1a1a;
+$color_grey_800: #333333;
+$color_grey_700: #666666;
+$color_grey_600: #999999;
+$color_grey_500: #bdbdbd;
+$color_grey_400: #ccc;
+$color_grey_300: #e2e2e2;
+$color_grey_300-color_secondary_hover: #e2e2e2;
+$color_grey_200: #eee;
+$color_grey_200-color_secondary: #eee;
+$color_grey_100: #f9f9f9;
+$color_header_table: #f5f6fa;
+$color_locked: #dc8522; 
+$color_locked_by_me: #ccc;
+$color_primary: #1aa9e2;
+$color_primary_hover: #0f8fd6;
+$color_project1: #41545d;
+$color_project2: #279ed6;
+$color_project3: #9b2761;
+$color_project4: #e53b78;
+$color_project5: #e7575b;
+$color_state_completed:#5b9e59;
+$color_state_draft:#dcbd22;
+$color_state_error:#f05060;
+$color_state_locked: #dc8522;
+$color_state_progress:#efb414;
+$color_state_review:#ff9f1a;
+$color_state_reviewed:#5cce88;
+$color_table_title:#a3a6b4;
+$color_table_row_folder:#fffaec;
+$color_table_row_folder_checked:#fff6db;
+$color_table_row_folder_hover:#fff6db;
+$color_white: #ffffff;
+
+//Breakpoints
+$media-md: 1024px;
+$media-lg: 1280px;
+$media-xl: 1480px;

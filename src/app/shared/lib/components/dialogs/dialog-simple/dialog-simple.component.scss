@@ -1,0 +1,69 @@
+@import 'variables';
+
+$block: "dialog-simple";
+
+.#{$block} {
+	font-family: Lato;
+
+	&__align-left {
+		text-align: left;
+	}
+
+	&__align-center {
+		text-align: center;
+	}
+
+	&__icon {
+		font-size: 48px;
+		width: 48px;
+		height: 48px;
+		color: $color_error;
+		margin-bottom: 14px;
+	}
+
+	&__title {
+		color: $color_black;
+		font-size: 20px;
+		font-weight: bold;
+		line-height: 1.2;
+		margin-bottom: 0;
+	}
+
+	&__subtitle {
+		color: $color_grey_600;
+		font-size: 14px;
+		line-height: 1.21;
+		margin-top: 6px;
+	}
+
+	&__description {
+		color: $color_grey_600;
+		font-size: 16px;
+		line-height: 1.5;
+		margin-top: $separation-16;
+		margin-bottom: 8px;
+		white-space: pre-line;
+	}
+
+	&__actions {
+		margin: 0 (-$separation-24) (-$separation-24) (-$separation-24);
+		padding: 8px;
+
+		.#{$block}__button {
+			font-size: 14px;
+			font-weight: 500;
+			padding: 0 $separation-16;
+			margin: 0;
+			min-width: auto;
+
+			&--cancel {
+				color: $color_grey_600;
+				margin-right: $separation-8;
+			}
+
+			&--accept {
+				color: $color_primary;
+			}
+		}
+	}
+}

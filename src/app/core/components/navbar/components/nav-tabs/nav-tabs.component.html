@@ -1,0 +1,28 @@
+<nav mat-tab-nav-bar
+		 #matTabs
+		 class="nav-tabs"
+		 [disableRipple]="true">
+	<ng-container *ngFor="let tab of tabs">
+		<a *ngIf="!tab.externalLink"
+			 draggable="false"
+			 mat-tab-link
+			 class="nav-tabs__link"
+			 [routerLink]="tab.route"
+			 routerLinkActive
+			 #rla="routerLinkActive"
+			 [active]="rla.isActive">
+			{{tab.title | translate}}
+		</a>
+		<a *ngIf="tab.externalLink"
+			 draggable="false"
+			 mat-tab-link
+			 class="nav-tabs__link"
+			 [href]="tab.externalLink"
+			 target="__blank"
+			 routerLinkActive
+			 #rla="routerLinkActive"
+			 [active]="rla.isActive">
+			{{tab.title | translate}}
+		</a>
+	</ng-container>
+</nav>

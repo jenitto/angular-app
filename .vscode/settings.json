@@ -1,0 +1,17 @@
+{
+	"editor.detectIndentation": false,
+	"editor.tabSize": 2,
+	"editor.insertSpaces": false,
+	"editor.formatOnSave": true,
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": true,
+	},
+	"html.autoClosingTags": true,
+	"html.format.wrapAttributes": "force-aligned",
+	"typescript.updateImportsOnFileMove.enabled": "always",
+	"git.autofetch": true,
+	"git.enableSmartCommit": true,
+	"git.confirmSync": false,
+	"git.ignoreLimitWarning": true,
+	"typescript.preferences.importModuleSpecifier": "non-relative"
+}

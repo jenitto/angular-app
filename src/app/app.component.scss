@@ -1,0 +1,29 @@
+@import 'variables';
+
+.app {
+
+	height: 100vh;
+
+	&__aside {
+		height: 100%;
+		overflow: hidden;
+	}
+
+	&__aside-portal-outlet {
+		height: 100vh;
+	}
+
+	&__sidenav,
+	&__content {
+		overflow: hidden;
+	}
+
+	&__main {
+		height: calc(100vh - 112px);
+		width: 100vw;
+		margin-top: 112px;
+		overflow: hidden;
+		background: #eeeeee;
+	}
+
+}

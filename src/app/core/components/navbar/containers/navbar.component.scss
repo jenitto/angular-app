@@ -1,0 +1,38 @@
+@import "variables";
+
+.navbar {
+	box-shadow: $shadow-navbar;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 4;
+	
+	
+	&__title {
+		display: flex;
+		color: #FFF;
+		text-decoration: none;
+	}
+
+	&__toolbar-row {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+		align-items: center;
+		
+		&--secondary {
+			height: 48px;
+			padding: 0 $separation-16;
+		}
+	}
+
+	&__loading {
+		position: absolute;
+    left: 0;
+    right: 0;
+		top: 100px;
+		z-index: 10;
+	}
+
+}

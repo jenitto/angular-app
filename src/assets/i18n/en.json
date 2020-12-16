@@ -1,0 +1,10 @@
+{
+	"TABS": {
+		"PLATFORMS": "platforms",
+		"GAMES": "games",
+		"REPORTS": "reports"
+	},
+	"USER_MENU": {
+		"ABOUT": "About"
+	}
+}

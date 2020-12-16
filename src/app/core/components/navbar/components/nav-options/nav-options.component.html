@@ -1,0 +1,9 @@
+<div class="nav-options">
+	<button class="nav-options__btn"
+					mat-icon-button
+					matTooltip="{{ 'NAV_OPTIONS.SEARCHER' | translate }}"
+					(click)="openSearchSidenav.emit(false)">
+		<mat-icon>search</mat-icon>
+	</button>
+	<app-user-menu (openVersionDialog)="openVersionDialog.emit()"></app-user-menu>
+</div>

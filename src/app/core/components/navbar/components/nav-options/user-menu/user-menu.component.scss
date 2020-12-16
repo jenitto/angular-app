@@ -1,0 +1,55 @@
+@import 'variables';
+
+$block : 'user-menu';
+
+	.#{$block}{
+
+
+		&__btn-image {
+			width: 32px !important;
+			height: 32px !important;
+			border-radius: 50%;
+		}
+
+		&__menu {
+			min-width: 260px !important;
+			overflow: hidden !important;
+		}
+
+		&__info {
+			display: flex;
+    	padding: 8px 16px;
+		}
+
+		&__info--user {
+			display: flex;
+			padding-left: 16px;
+			width: 100%;
+			flex-direction: column;
+		}
+
+		&__avatar {
+			height: 40px;
+			width: 40px;
+			border-radius: 50%;
+			flex-shrink: 0;
+			object-fit: cover;
+		}
+
+		&__name {
+			height: 19px;
+			font-size: 16px;
+			font-weight: bold;
+			line-height: 1.19;
+			color:$color_grey_800;
+		}
+
+		&__username {
+			margin-top: 4px;
+			height: 17px;
+			font-size: 14px;
+			line-height: 1.21;
+			color: $color_grey_600;
+		}
+
+	}

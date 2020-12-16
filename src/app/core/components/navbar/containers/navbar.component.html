@@ -1,0 +1,21 @@
+<mat-toolbar class="navbar"
+						 color="primary">
+	<mat-toolbar-row>
+		<div class="navbar__toolbar-row">
+			<a routerLink="/"
+				 class="navbar__title">Angular APP
+			</a>
+			<div class="navbar__options">
+				<app-nav-options (openVersionDialog)="onOpenVersionDialog()"></app-nav-options>
+			</div>
+		</div>
+	</mat-toolbar-row>
+	<mat-toolbar-row class="navbar__toolbar-row--secondary">
+		<app-nav-tabs class="navbar__tabs-wrapper"></app-nav-tabs>
+	</mat-toolbar-row>
+	<div>
+	</div>
+	<mat-progress-bar *ngIf="!(isSidenavOpened$ | async) && globalLoading"
+										class="navbar__loading"
+										mode="indeterminate"></mat-progress-bar>
+</mat-toolbar>
