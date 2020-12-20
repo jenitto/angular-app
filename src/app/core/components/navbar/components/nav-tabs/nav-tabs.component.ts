@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatTabNav } from '@angular/material/tabs';
 import { Tab } from 'src/app/core/components/navbar/components/nav-tabs/tab.interface';
 import { TabService } from 'src/app/core/services/tab.service';
@@ -9,7 +9,7 @@ import { TabService } from 'src/app/core/services/tab.service';
 	styleUrls: ['./nav-tabs.component.scss'],
 	encapsulation: ViewEncapsulation.None
 })
-export class NavTabsComponent implements OnInit, DoCheck {
+export class NavTabsComponent implements OnInit {
 
 	@ViewChild('matTabs', { static: true }) matTabs: MatTabNav;
 
@@ -21,10 +21,6 @@ export class NavTabsComponent implements OnInit, DoCheck {
 
 	ngOnInit(): void {
 		this.listenOnTabsChange();
-	}
-
-	ngDoCheck(): void {
-		this.matTabs._alignInkBarToSelectedTab();
 	}
 
 	listenOnTabsChange(): void {

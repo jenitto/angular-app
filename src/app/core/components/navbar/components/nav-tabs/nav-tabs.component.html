@@ -6,22 +6,24 @@
 		<a *ngIf="!tab.externalLink"
 			 draggable="false"
 			 mat-tab-link
-			 class="nav-tabs__link"
+			 class="nav-tabs__link utils--uppercase"
 			 [routerLink]="tab.route"
 			 routerLinkActive
 			 #rla="routerLinkActive"
-			 [active]="rla.isActive">
+			 [active]="rla.isActive"
+			 [routerLinkActiveOptions]="{exact: true}">
 			{{tab.title | translate}}
 		</a>
 		<a *ngIf="tab.externalLink"
 			 draggable="false"
 			 mat-tab-link
-			 class="nav-tabs__link"
+			 class="nav-tabs__link utils--uppercase"
 			 [href]="tab.externalLink"
 			 target="__blank"
 			 routerLinkActive
 			 #rla="routerLinkActive"
-			 [active]="rla.isActive">
+			 [active]="rla.isActive"
+			 [routerLinkActiveOptions]="{exact: true}">
 			{{tab.title | translate}}
 		</a>
 	</ng-container>

@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ContentComponent } from 'src/app/main/content/containers/content/content.component';
+import { PlatformsComponent } from 'src/app/main/platforms/containers/platforms/platforms.component';
 
 const routes: Routes = [
 	{
 		path: '',
-		component: ContentComponent
+		component: PlatformsComponent
 	}
 ];
 
@@ -15,4 +15,4 @@ const routes: Routes = [
 	exports: [RouterModule],
 	providers: []
 })
-export class ContentRoutingModule { }
+export class PlatformsRoutingModule { }

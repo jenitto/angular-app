@@ -1,0 +1,35 @@
+<div class="platforms"
+		 infiniteScroll
+		 [infiniteScrollDistance]="2"
+		 [infiniteScrollUpDistance]="1.5"
+		 [infiniteScrollThrottle]="50"
+		 (scrolled)="onScrollDown()"
+		 [scrollWindow]="false"
+		 appAutoload
+		 [autoloadCheckScroll$]="checkScroll$"
+		 (autoloadLoadMore)="onScrollDown()">
+	<div class="platforms__main">
+		<div class="platforms__header">
+			<h2 class="mat-h2 platforms__title utils--uppercase">{{ 'TABS.PROJECTS' | translate}}</h2>
+			<app-select [options]="sortOptions"
+									(selectionChange)="onSortChange($event)"
+									[value]="sortOptions[0]"
+									translateKeyPrefix="PROJECTS.ORDER">
+			</app-select>
+		</div>
+		<!-- <app-projects-list class="platforms__list"
+											 [projects]="projects$ | async"
+											 [skeletons]="projectsSkeletons$ | async"
+											 (archiveProject)="onArchiveProject($event)"
+											 (deleteProject)="onDeleteProject($event)"
+											 (editProject)="onEditProject($event)"
+											 (openPermissionsManager)="onOpenPermissionsManager($event)"
+											 (goToProject)="onGoToProject($event)"></app-projects-list> -->
+		<app-spinner [show]="areProjectsLoading$ | async"></app-spinner>
+		<button class="platforms__button--right"
+						mat-fab
+						color="primary">
+			<mat-icon>add</mat-icon>
+		</button>
+	</div>
+</div>

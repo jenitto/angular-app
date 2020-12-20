@@ -1,0 +1,17 @@
+<mat-form-field [ngClass]="formClass"
+								class="custom-select">
+	<mat-select [value]="value"
+							[panelClass]="panelClass"
+							[placeholder]="placeholder"
+							[disableRipple]="false"
+							[multiple]="multiple"
+							[disabled]="disabled"
+							[compareWith]="compareSort"
+							(selectionChange)="onSelectionChange($event)">
+		<mat-option *ngFor="let option of options"
+								[value]="option">
+			<span translate
+						[translateParams]="{ order: option.active + option.direction }">{{ translateKeyPrefix }}</span>
+		</mat-option>
+	</mat-select>
+</mat-form-field>

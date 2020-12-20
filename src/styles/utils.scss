@@ -1,0 +1,23 @@
+@import "./styles/app/variables";
+
+$block: "utils";
+
+.#{$block} {
+	&--uppercase {
+		text-transform: uppercase;
+	}
+
+	&--capitalize {
+		text-transform: capitalize;
+	}
+
+	&--truncate {
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	&--hideFocus:focus{
+		outline: none;
+	}
+}

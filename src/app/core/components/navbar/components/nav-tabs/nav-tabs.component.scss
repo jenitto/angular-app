@@ -2,10 +2,6 @@
 
 .nav-tabs {
 
-	&.mat-tab-header-pagination-controls-enabled .mat-tab-header-pagination { // CCL-991
-		display: none;
-	}
-
 	border-bottom: none !important;
 
 	&__link {
@@ -32,11 +28,6 @@
 	&.mat-tab-nav-bar.mat-primary .mat-tab-label:not(.mat-tab-disabled):focus,
 	&.mat-tab-nav-bar.mat-primary .mat-tab-link:not(.mat-tab-disabled):focus {
 		background-color: transparent;
-	}
-
-	&.mat-tab-nav-bar.mat-primary .mat-tab-links .mat-ink-bar {
-		height: 2px;
-		background-color: $color_white;
 	}
 
 	.mat-ink-bar {

@@ -1,0 +1,39 @@
+@import 'variables';
+
+$block : 'platforms';
+
+.#{$block} {
+
+  &__content{
+    height: 100%;
+		overflow-y: scroll;
+	}
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 22px;
+	}
+	
+	&__title {
+		margin-bottom: 0;
+		color: $color_grey_700;
+		font-size: 18px;
+		font-weight: 500;
+		user-select: none;
+	}
+
+	&__list {
+		margin-top: $separation-24;
+		display: block;
+	}
+
+	&__button--right {
+		position: fixed;
+		bottom: 30px;
+		right: 35px;
+		z-index: 3;
+	}
+
+}

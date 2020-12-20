@@ -4,12 +4,12 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
 	{
 		path: '',
-		loadChildren: () => import('./main/content/content.module').then(m => m.ContentModule)
+		loadChildren: () => import('./main/platforms/platforms.module').then(m => m.PlatformsModule)
 	},
-	// {
-	// 	path: 'editor',
-	// 	loadChildren: () => import('./editor/editor.module').then(m => m.EditorModule)
-	// },
+	{
+		path: 'games',
+		loadChildren: () => import('./main/games/games.module').then(m => m.GamesModule)
+	},
 	// {
 	// 	path: 'preview',
 	// 	loadChildren: () => import('./preview/preview.module').then(m => m.PreviewModule)

@@ -5,7 +5,9 @@ import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { DialogSimpleComponent } from 'src/app/shared/lib/components/dialogs/dialog-simple/dialog-simple.component';
+import { SelectComponent } from 'src/app/shared/lib/components/select/select.component';
 import { SidenavToolbarComponent } from 'src/app/shared/lib/components/sidenav-toolbar/sidenav-toolbar.component';
+import { SpinnerComponent } from 'src/app/shared/lib/components/spinner/spinner.component';
 import { ClickOutsideDirective } from 'src/app/shared/lib/directives/click-outside.directive';
 import { ParallaxDirective } from 'src/app/shared/lib/directives/parallax.directive';
 import { ScrollingDirective } from 'src/app/shared/lib/directives/scrolling.directive';
@@ -39,6 +41,8 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		SafeUrlPipe,
 		DialogSimpleComponent,
 		SidenavToolbarComponent,
+		SpinnerComponent,
+		SelectComponent,
 	],
 	exports: [
 		ReactiveFormsModule,
@@ -54,6 +58,8 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		AutoLoadDirective,
 		DialogSimpleComponent,
 		SidenavToolbarComponent,
+		SpinnerComponent,
+		SelectComponent,
 	],
 	entryComponents: [
 		DialogSimpleComponent,

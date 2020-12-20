@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dialog';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable } from 'rxjs';
-import { ConfirmAction } from 'src/app/shared/interfaces/confirm-actions.enum';
-import { WorkflowTransitionsEnum } from 'src/app/shared/interfaces/workflow.enum';
+import { ConfirmAction } from 'src/app/shared/lib/interfaces/confirm-actions.enum';
 import { DialogSimpleComponent } from '../components/dialogs/dialog-simple/dialog-simple.component';
 import { dialogSimpleFactory } from '../components/dialogs/dialog-simple/dialog-simple.factory';
 
@@ -21,7 +20,7 @@ export class ConfirmCatalogueService {
 		return this.dialog.open(DialogSimpleComponent, dialogData).afterClosed();
 	}
 
-	launchDialog(itemName: string, action: ConfirmAction | WorkflowTransitionsEnum): Observable<MatDialogRef<any>> {
+	launchDialog(itemName: string, action: ConfirmAction): Observable<MatDialogRef<any>> {
 		const dialogData = dialogSimpleFactory({
 			title: this.translate.instant('ITEM.' + action.toUpperCase(), { itemName: itemName }),
 			description: this.translate.instant('ITEM.ARE_YOU_SURE_' + action.toUpperCase()),

@@ -1,8 +1,5 @@
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Catalogue } from 'src/app/shared/interfaces/catalogue.type';
-import { Release } from 'src/app/shared/interfaces/release.interface';
-import { SortDirectionName } from 'src/app/shared/interfaces/sort-direction-name.enum';
-import { User } from 'src/app/shared/interfaces/user.interface';
+import { SortDirectionName } from 'src/app/shared/lib/interfaces/sort-direction-name.enum';
 
 interface IEntityCollection<T> {
 	addAll: (entities: T[]) => void;
@@ -19,7 +16,7 @@ interface IEntityCollection<T> {
 	sort: (property: string, direction: SortDirectionName, from?: number, to?: number) => void;
 }
 
-export class EntityCollection<T extends Catalogue | Release | User> implements IEntityCollection<T> {
+export class EntityCollection<T> implements IEntityCollection<T> {
 
 	private entities: T[] = [];
 	// private entities: {[key: string]: T};

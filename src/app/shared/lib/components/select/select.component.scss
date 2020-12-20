@@ -1,0 +1,97 @@
+@import 'variables';
+
+$block: "custom-select";
+$panelSelect: "custom-panel-select";
+$resourcesSelect: "resources-select";
+
+.#{$block} {
+	margin-left: (-$separation-12);
+	user-select: none;
+
+	&.mat-form-field-disabled {
+		cursor: default;
+		opacity: 0.6;
+	}
+
+	& .mat-form-field-underline {
+		display: none;
+	}
+
+	& .mat-select-value-text {
+		font-family: Lato;
+		font-size: 14px;
+		font-weight: bold;
+		color: $color_grey_600;
+	}
+
+	& .mat-select-arrow {
+		color: $color_grey_600 !important;
+	}
+
+	& .mat-form-field-wrapper {
+		padding: 0 $separation-12 !important;
+		border-radius: 4px;
+	}
+
+	&:not(.mat-form-field-disabled) .mat-form-field-wrapper:hover:not(:disabled) {
+		background-color: $color_grey_300-color_secondary_hover;
+	}
+
+	& .mat-form-field-infix {
+		border-top: 0 !important;
+		padding: 9px 0 !important;
+		width: auto;
+	}
+
+	& .mat-form-field-label-wrapper {
+		padding: 0 !important;
+	}
+
+	& .mat-select-value {
+		color: $color_grey_700 !important;
+		display: inline !important;
+	}
+}
+
+.#{$panelSelect} {
+	padding: $separation-8 0 !important;
+	border-radius: 4px;
+	user-select: none;
+
+	& .mat-option-text {
+		color: $color_grey_700;
+		font-size: 14px;
+	}
+
+	& .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+		background-color: $color_grey_200-color_secondary;
+	}
+
+	& .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+		color: $color_grey_700;
+	}
+
+	& .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+		color: $color_grey_600 !important;
+	}
+}
+
+.#{$resourcesSelect} {
+	margin-left: $separation-8;
+	user-select: none;
+
+	& .mat-select {
+		text-align: center;
+	}
+
+	& .mat-select-value-text {
+		font-size: 12px;
+		font-weight: normal;
+		text-transform: initial;
+	}
+
+	& .mat-form-field-infix {
+		min-width: auto;
+	}
+
+}
