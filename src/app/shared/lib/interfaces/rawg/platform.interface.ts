@@ -1,5 +1,5 @@
 export interface Platform {
-	id: number | string;
+	id: string;
 	name: string;
 	slug: string;
 	games_count: number;

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from 'src/app/main/errors/page-not-found/page-not-found.component';
 
 const routes: Routes = [
 	{
@@ -18,6 +19,10 @@ const routes: Routes = [
 	// 	path: 'unit',
 	// 	loadChildren: () => import('./unit/unit.module').then(m => m.UnitModule)
 	// },
+	{
+		path: '404',
+		component: PageNotFoundComponent
+	},
 	{
 		path: '**',
 		redirectTo: '/404',

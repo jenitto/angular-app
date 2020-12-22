@@ -1,16 +1,23 @@
 {
 	"BUTTONS": {
+		"CANCEL": "cancel",
+		"CLOSE": "close",
 		"DELETE": "delete",
 		"EDIT": "edit"
+	},
+	"ERRORS": {
+		"GO_HOME": "Go back to home",
+		"NOT_FOUND_SUBTITLE": "The resource you are looking for does not exist.",
+		"NOT_FOUND_TITLE": "Not found"
 	},
 	"ITEM": {
 		"ARE_YOU_SURE_DELETE": "You are permanently deleting it, once deleted, you will not be able to recover it. Are you sure?",
 		"DELETE": "Permanently delete {itemName}",
-		"DELETED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been deleted} other{has been deleted}}",
+		"DELETED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been deleted} other{has been deleted}}"
 	},
 	"TABS": {
-		"PLATFORMS": "platforms",
 		"GAMES": "games",
+		"PLATFORMS": "platforms",
 		"REPORTS": "reports"
 	},
 	"USER_MENU": {

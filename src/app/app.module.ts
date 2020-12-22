@@ -8,6 +8,7 @@ import { from, Observable } from 'rxjs';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavbarComponent } from 'src/app/core/components/navbar/containers/navbar.component';
 import { CoreModule } from 'src/app/core/core.module';
+import { PageNotFoundComponent } from 'src/app/main/errors/page-not-found/page-not-found.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AppComponent } from './app.component';
 
@@ -21,6 +22,7 @@ export class WebpackTranslateLoader implements TranslateLoader {
 	declarations: [
 		AppComponent,
 		NavbarComponent,
+		PageNotFoundComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -35,10 +37,10 @@ export class WebpackTranslateLoader implements TranslateLoader {
 				useClass: TranslateMessageFormatCompiler
 			}
 		}),
+		SharedModule,
 		CoreModule,
 		AppRoutingModule,
 		MatSidenavModule,
-		SharedModule,
 	],
 	providers: [{ provide: MESSAGE_FORMAT_CONFIG, useValue: { locales: ['es', 'en'] } }],
 	entryComponents: [

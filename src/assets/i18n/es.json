@@ -1,7 +1,14 @@
 {
 	"BUTTONS": {
+		"CANCEL": "cancelar",
+		"CLOSE": "cerrar",
 		"DELETE": "eliminar",
 		"EDIT": "editar"
+	},
+	"ERRORS": {
+		"GO_HOME": "Volver al inicio",
+		"NOT_FOUND_SUBTITLE": "El recurso que estás buscando no existe.",
+		"NOT_FOUND_TITLE": "No encontrado"
 	},
 	"ITEM": {
 		"ARE_YOU_SURE_DELETE": "Vas a eliminar esto permanentemente, una vez eliminado no podrás recuperarlo. ¿Estás seguro?",
@@ -9,8 +16,8 @@
 		"DELETED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido eliminada} other{ha sido eliminado}}"
 	},
 	"TABS": {
-		"PLATFORMS": "plataformas",
 		"GAMES": "juegos",
+		"PLATFORMS": "plataformas",
 		"REPORTS": "informes"
 	},
 	"USER_MENU": {
