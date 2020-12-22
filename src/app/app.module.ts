@@ -1,19 +1,20 @@
-import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateCompiler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { MESSAGE_FORMAT_CONFIG, TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-compiler';
+import { from, Observable } from 'rxjs';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { NavbarComponent } from 'src/app/core/components/navbar/containers/navbar.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AppComponent } from './app.component';
 
-// AoT requires an exported function for factories
-export function HttpLoaderFactory(httpClient: HttpClient) {
-	return new TranslateHttpLoader(httpClient);
+export class WebpackTranslateLoader implements TranslateLoader {
+	getTranslation(lang: string): Observable<any> {
+		return from(import(`../assets/i18n/${lang}.json`));
+	}
 }
 
 @NgModule({
@@ -27,8 +28,11 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 		TranslateModule.forRoot({
 			loader: {
 				provide: TranslateLoader,
-				useFactory: HttpLoaderFactory,
-				deps: [HttpClient]
+				useClass: WebpackTranslateLoader
+			},
+			compiler: {
+				provide: TranslateCompiler,
+				useClass: TranslateMessageFormatCompiler
 			}
 		}),
 		CoreModule,
@@ -36,7 +40,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 		MatSidenavModule,
 		SharedModule,
 	],
-	providers: [],
+	providers: [{ provide: MESSAGE_FORMAT_CONFIG, useValue: { locales: ['es', 'en'] } }],
 	entryComponents: [
 		// ReloadAppDialogComponent
 	],
