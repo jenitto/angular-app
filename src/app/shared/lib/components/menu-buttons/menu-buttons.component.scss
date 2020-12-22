@@ -1,0 +1,31 @@
+@import "variables";
+
+$block : 'menu-buttons';
+
+.#{$block} {
+
+	&__more-button {
+		position: relative;
+
+		&:hover {
+			background: $color_menu-button_hover;
+		}
+	}
+
+	&__more-button:disabled {
+		opacity: .5;
+	}
+
+	&__more-button:disabled:hover {
+		background: transparent;
+	}
+
+	&__option {
+		color: $color_grey_700;
+	}
+
+	&__option--disabled{
+		opacity: .5;
+	}
+
+}

@@ -8,24 +8,22 @@
 		 appAutoload
 		 [autoloadCheckScroll$]="checkScroll$"
 		 (autoloadLoadMore)="onScrollDown()">
-	<div class="platforms__main">
+	<div class="platforms__main main-container">
 		<div class="platforms__header">
-			<h2 class="mat-h2 platforms__title utils--uppercase">{{ 'TABS.PROJECTS' | translate}}</h2>
+			<h2 class="mat-h2 platforms__title utils--uppercase">{{ 'TABS.PLATFORMS' | translate}}</h2>
 			<app-select [options]="sortOptions"
 									(selectionChange)="onSortChange($event)"
 									[value]="sortOptions[0]"
-									translateKeyPrefix="PROJECTS.ORDER">
+									translateKeyPrefix="PLATFORMS.ORDER">
 			</app-select>
 		</div>
-		<!-- <app-projects-list class="platforms__list"
-											 [projects]="projects$ | async"
-											 [skeletons]="projectsSkeletons$ | async"
-											 (archiveProject)="onArchiveProject($event)"
-											 (deleteProject)="onDeleteProject($event)"
-											 (editProject)="onEditProject($event)"
-											 (openPermissionsManager)="onOpenPermissionsManager($event)"
-											 (goToProject)="onGoToProject($event)"></app-projects-list> -->
-		<app-spinner [show]="areProjectsLoading$ | async"></app-spinner>
+		<app-platforms-list class="platforms__list"
+												[platforms]="platforms$ | async"
+												[skeletons]="platformsSkeletons"
+												(deletePlatform)="onDeletePlatform($event)"
+												(editPlatform)="onEditPlatform($event)"
+												(goToplatform)="onGoToplatform($event)"></app-platforms-list>
+		<app-spinner [show]="arePlatformsLoading$ | async"></app-spinner>
 		<button class="platforms__button--right"
 						mat-fab
 						color="primary">

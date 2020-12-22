@@ -6,11 +6,13 @@ import { filter, tap } from 'rxjs/operators';
 import { RouteParams } from 'src/app/core/interfaces/route.interface';
 import { PlatformsService } from 'src/app/core/services/platforms.service';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
+import { CollectionType } from 'src/app/shared/lib/interfaces/collection-type.enum';
 import { ConfirmAction } from 'src/app/shared/lib/interfaces/confirm-actions.enum';
+import { Platform } from 'src/app/shared/lib/interfaces/rawg/platform.interface';
 import { CollectionService } from 'src/app/shared/lib/services/collection.service';
 import { ConfirmCatalogueService } from 'src/app/shared/lib/services/confirm-catalogue.service';
 
-const PROJECTS_PAGE_SIZE = 20;
+const PLATFORMS_PAGE_SIZE = 20;
 
 @Injectable()
 export class PlatformsFacade {
@@ -19,10 +21,10 @@ export class PlatformsFacade {
 
 	private sortSource = new BehaviorSubject<Sort>(this.sort);
 
-	projects$: Observable<any[]>;
-	areProjectsLoading$: Observable<boolean>;
-	areProjectsRefreshing$: Observable<boolean>;
-	haveProjectsLoaded$: Observable<boolean>;
+	platforms$: Observable<any[]>;
+	arePlatformsLoading$: Observable<boolean>;
+	arePlatformsRefreshing$: Observable<boolean>;
+	havePlatformsLoaded$: Observable<boolean>;
 	requestLoaded$: Observable<void>;
 	sort$ = this.sortSource.asObservable();
 
@@ -35,15 +37,15 @@ export class PlatformsFacade {
 		private snackBarService: SnackBarService,
 		private translate: TranslateService,
 	) {
-		this.projects$ = this.collectionService.collection$ as Observable<any[]>;
-		this.areProjectsLoading$ = this.collectionService.isCollectionLoading$;
-		this.haveProjectsLoaded$ = this.collectionService.hasCollectionLoaded$;
+		this.platforms$ = this.collectionService.collection$ as Observable<any[]>;
+		this.arePlatformsLoading$ = this.collectionService.isCollectionLoading$;
+		this.havePlatformsLoaded$ = this.collectionService.hasCollectionLoaded$;
 		this.requestLoaded$ = this.collectionService.requestLoaded$;
 	}
 
 	getRouteParams(): RouteParams {
 		const params: RouteParams = {
-			itemsPerPage: PROJECTS_PAGE_SIZE,
+			itemsPerPage: PLATFORMS_PAGE_SIZE,
 		};
 
 		if (this.sort) {
@@ -53,18 +55,18 @@ export class PlatformsFacade {
 		return params;
 	}
 
-	loadProjects(): void {
-		this.collectionService.loadCatalogue(this.getRouteParams());
+	loadPlatforms(): void {
+		this.collectionService.loadPlatforms(this.getRouteParams());
 	}
 
-	refreshProjects(): void {
-		this.collectionService.refreshCatalogue(this.getRouteParams());
+	refreshPlatforms(): void {
+		this.collectionService.refreshPlatforms(this.getRouteParams());
 	}
 
-	// loadRecentProjects() {
+	// loadRecentPlatforms() {
 	// 	const params: RouteParams = {
 	// 		page: 1,
-	// 		itemsPerPage: RECENT_PROJECTS_PAGE_SIZE,
+	// 		itemsPerPage: RECENT_PlatformS_PAGE_SIZE,
 	// 		order: {
 	// 			updatedAt: 'desc'
 	// 		}
@@ -73,35 +75,35 @@ export class PlatformsFacade {
 	// 	this.platformsService.getItems(params).pipe(
 	// 		takeUntil(this.destroySubscriptions$)
 	// 	).subscribe((res: HydraCollection<Catalogue>) => {
-	// 		this.recentProjects.addAll(res['hydra:member'] as Project[]);
+	// 		this.recentPlatforms.addAll(res['hydra:member'] as Platform[]);
 	// 	});
 	// }
 
 	changeSort(sort: Sort): void {
 		this.sort = sort;
 		this.sortSource.next(sort);
-		this.refreshProjects();
+		this.refreshPlatforms();
 	}
 
-	deleteProject(project: any): void {
+	deletePlatform(platform: Platform): void {
 		const translation = this.translate.instant('ITEM.DELETED', {
-			itemType: project['@type'],
-			itemName: project.name
+			itemType: CollectionType.PLATFORMS,
+			itemName: platform.name
 		});
 
-		this.confirmCatalogueService.launchDialog(project.name, ConfirmAction.DELETE)
+		this.confirmCatalogueService.launchDialog(platform.name, ConfirmAction.DELETE)
 			.pipe(
 				filter(res => !!res),
 				tap(() => {
-					this.collectionService.removeItem(project.id);
+					this.collectionService.removeItem(platform.id);
 					this.snackBarService.open(translation);
 				}),
-				// switchMap(() => this.platformsService.deleteItem(project.id))
+				// switchMap(() => this.platformsService.deleteItem(Platform.id))
 			).subscribe();
 	}
 
-	updateProject(project: any): void {
-		this.collectionService.updateItem(project.id, project);
+	updatePlatform(platform: Platform): void {
+		this.collectionService.updateItem(platform.id, platform);
 	}
 
 	destroySubscriptions(): void {

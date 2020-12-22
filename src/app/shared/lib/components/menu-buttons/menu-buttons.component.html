@@ -1,0 +1,58 @@
+<div class="menu-buttons">
+	<button mat-icon-button
+					class="menu-buttons__more-button"
+					[disabled]="checkIfDisabled()"
+					[ngStyle]="{
+						'height': size,
+						'width': size,
+						'line-height': size,
+						'color': color
+					}"
+					[matMenuTriggerFor]="buttonList"
+					aria-label="Toggle menu"
+					(click)="openMenu.emit();$event.stopPropagation()">
+		<mat-icon>{{icon}}</mat-icon>
+	</button>
+
+	<mat-menu #buttonList="matMenu"
+						xPosition="before"
+						(closed)="closeMenu.emit()">
+		<ng-container *ngIf="!checkIfDisabled() && menuButtons.length">
+			<ng-container *ngFor="let button of menuButtons; let i = index">
+
+				<ng-container *ngIf="button.show">
+					<button *ngIf="!button.link"
+									mat-menu-item
+									class="menu-buttons__option"
+									[disabled]="button.disabled"
+									[ngClass]="{
+											'menu-buttons__option--disabled': button.disabled
+										}"
+									[ngStyle]="{
+											'color': button.color ? button.color : '',
+											'backgroundColor': button.backgroundColor ? button.backgroundColor : ''
+										}"
+									(click)="onAction(button.method)">
+						<mat-icon [ngStyle]="{ 
+													'color': button.color ? button.color : ''
+												}">{{button.icon}}</mat-icon>
+						<span class='utils--uppercase'>{{ button.title }}</span>
+					</button>
+
+					<a *ngIf="button.link"
+						 mat-menu-item
+						 class="menu-buttons__option"
+						 [routerLink]="button.link.routerLink"
+						 [queryParams]="button.link.queryParams"
+						 [target]="button.link.target"
+						 (click)="onAction(button.method)">
+						<mat-icon>{{ button.icon }}</mat-icon>
+						<span class='utils--uppercase'>{{ button.title }}</span>
+					</a>
+				</ng-container>
+
+
+			</ng-container>
+		</ng-container>
+	</mat-menu>
+</div>

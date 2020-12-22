@@ -1,0 +1,30 @@
+@import 'variables';
+
+$block: "platforms-list";
+
+.#{$block} {
+	width: 100%;
+	margin-top: $separation-32;
+	margin-right: (-$separation-16);
+	margin-bottom: (-$separation-16);
+
+	&__platforms {
+		display: flex;
+		flex-flow: row wrap;
+		align-content: flex-start;
+		margin: -8px;
+	}
+
+	&__grid-card {
+		display: inline-flex;
+		width: calc(33.33% - 16px);
+		margin: 8px;
+	}
+
+	@media screen and (min-width: $media-xl) {
+		&__grid-card  {
+			width: calc(25% - 16px );
+		}
+	}
+
+}

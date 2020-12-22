@@ -1,6 +1,15 @@
 {
+	"BUTTONS": {
+		"DELETE": "eliminar",
+		"EDIT": "editar"
+	},
+	"ITEM": {
+		"ARE_YOU_SURE_DELETE": "Vas a eliminar esto permanentemente, una vez eliminado no podrás recuperarlo. ¿Estás seguro?",
+		"DELETE": "Borrar {itemName}",
+		"DELETED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido eliminada} other{ha sido eliminado}}"
+	},
 	"TABS": {
-		"PLATFORMS": "consolas",
+		"PLATFORMS": "plataformas",
 		"GAMES": "juegos",
 		"REPORTS": "informes"
 	},

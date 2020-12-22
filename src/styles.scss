@@ -1,3 +1,36 @@
 @import "app-table/app-table";
 @import "app/variables";
 @import "utils.scss";
+
+.main-container {
+	display: block;
+	margin: 0 auto;
+	transition: max-width 0.2s ease;
+	margin-top: 56px;
+	margin-bottom: 72px;
+
+	@media screen and (max-width: 1279px) {
+		max-width: 768px;
+	}
+
+	@media screen and (min-width:  $media-lg) {
+		max-width: 900px;
+	}
+
+	@media screen and (min-width: $media-xl) {
+		max-width: 1240px;
+	}
+
+	&--collapsed {
+		@media screen and (max-width: 1279px) {
+			max-width: 500px;
+		}
+		@media screen and (min-width:  $media-lg) {
+			max-width: 768px;
+		}
+		@media screen and (min-width: $media-xl) {
+			max-width: 1000px;
+		}
+	}
+
+}

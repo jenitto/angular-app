@@ -1,0 +1,35 @@
+@import "variables";
+
+$block: "empty";
+
+.#{$block} {
+	flex-direction: column;
+	display: flex;
+	align-items: center;
+	user-select: none;
+
+	&__image {
+		color: $color_grey_400;
+		width: 156px;
+		height: 156px;
+		font-size: 156px;
+		line-height: 156px;
+	}
+
+	&__title {
+		margin-top: 12px;
+		font-size: 21px;
+		font-weight: bold;
+		color: $color_grey_700;
+		line-height: 1.19;
+		min-height: 21px;
+	}
+	
+	&__subtitle {
+    margin-top: 16px;
+		font-size: 14px;
+		color: $color_grey_600;
+		line-height: 1.21;
+		min-height: 16px;
+	}
+}

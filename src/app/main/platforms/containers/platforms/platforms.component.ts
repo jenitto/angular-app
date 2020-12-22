@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { SidenavService } from 'src/app/core/services/sidenav.service';
 import { PlatformsFacade } from 'src/app/main/platforms/facades/platforms.facade';
+import { Platform } from 'src/app/shared/lib/interfaces/rawg/platform.interface';
 import { SortDirectionName } from 'src/app/shared/lib/interfaces/sort-direction-name.enum';
 import { CollectionService } from 'src/app/shared/lib/services/collection.service';
 import { SidenavOpenerService } from 'src/app/shared/lib/utils/sidenav-opener.service';
-
 
 @Component({
 	selector: 'app-platforms',
@@ -23,13 +23,13 @@ export class PlatformsComponent extends SidenavOpenerService implements OnInit, 
 		{ active: 'name', direction: SortDirectionName.DESC }
 	];
 
-	projects$: Observable<any[]>;
-	areProjectsLoading$: Observable<boolean>;
-	areProjectsRefreshing$: Observable<boolean>;
-	haveProjectsLoaded$: Observable<boolean>;
+	platforms$: Observable<any[]>;
+	arePlatformsLoading$: Observable<boolean>;
+	arePlatformsRefreshing$: Observable<boolean>;
+	havePlatformsLoaded$: Observable<boolean>;
 	checkScroll$: Observable<void>;
 
-	projectsSkeletons$ = new Array(3);
+	platformsSkeletons = new Array(3);
 
 	private refreshSubscription = new Subscription();
 	private destroySubscriptions$ = new Subject<void>();
@@ -42,15 +42,15 @@ export class PlatformsComponent extends SidenavOpenerService implements OnInit, 
 		private router: Router,
 	) {
 		super(sidenavService, componentFactoryResolver, injector);
-		this.projects$ = this.platformsFacade.projects$;
-		this.areProjectsLoading$ = this.platformsFacade.areProjectsLoading$;
-		this.areProjectsRefreshing$ = this.platformsFacade.areProjectsRefreshing$;
-		this.haveProjectsLoaded$ = this.platformsFacade.haveProjectsLoaded$;
+		this.platforms$ = this.platformsFacade.platforms$;
+		this.arePlatformsLoading$ = this.platformsFacade.arePlatformsLoading$;
+		this.arePlatformsRefreshing$ = this.platformsFacade.arePlatformsRefreshing$;
+		this.havePlatformsLoaded$ = this.platformsFacade.havePlatformsLoaded$;
 		this.checkScroll$ = this.platformsFacade.requestLoaded$;
 	}
 
 	ngOnInit(): void {
-		this.platformsFacade.refreshProjects();
+		this.platformsFacade.refreshPlatforms();
 	}
 
 	onSortChange(sort: Sort): void {
@@ -58,32 +58,32 @@ export class PlatformsComponent extends SidenavOpenerService implements OnInit, 
 	}
 
 	onScrollDown(): void {
-		this.platformsFacade.loadProjects();
+		this.platformsFacade.loadPlatforms();
 	}
 
 	// onOpenNewPlatformSidenav(): void {
-	// 	this.openSidenav(NewProjectComponent);
+	// 	this.openSidenav(NewplatformComponent);
 	// }
 
-	onGoToProject(project: any, recentProject = false) {
-		if (project) {
-			this.router.navigate(['project', project.id]);
+	onGoToplatform(platform: Platform): void {
+		if (platform) {
+			this.router.navigate(['platform', platform.id]);
 		}
 	}
 
-	onDeleteProject(project: any) {
-		this.platformsFacade.deleteProject(project);
+	onDeletePlatform(platform: Platform): void {
+		this.platformsFacade.deletePlatform(platform);
 	}
 
-	// onEditProject(project: any) {
-	// 	const data = this.sidenavService.createData({ ...project });
+	onEditPlatform(platform: Platform): void {
+		// 	const data = this.sidenavService.createData({ ...platform });
 
-	// 	const comp: ComponentRef<NewProjectComponent> = this.openSidenav(NewProjectComponent, data);
+		// 	const comp: ComponentRef<NewplatformComponent> = this.openSidenav(NewplatformComponent, data);
 
-	// 	comp.instance.updateProject.subscribe((updatedProject: any) => {
-	// 		this.platformsFacade.updateProject(updatedProject);
-	// 	});
-	// }
+		// 	comp.instance.updatePlatform.subscribe((updatedplatform: Platform) => {
+		// 		this.platformsFacade.updatePlatform(updatedplatform);
+		// 	});
+	}
 
 	ngOnDestroy(): void {
 		this.destroySubscriptions$.next();

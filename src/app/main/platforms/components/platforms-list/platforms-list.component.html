@@ -1,0 +1,17 @@
+<div class="platforms-list">
+	<div class="platforms-list__platforms"
+			 *ngIf="!platforms || (platforms && platforms.length)">
+		<app-card-platform class="platforms-list__grid-card"
+											 *ngFor="let platform of (platforms && platforms.length ?  platforms : skeletons)"
+											 [platform]="platform"
+											 (goToPlatform)="goToPlatform.emit(platform)"
+											 (deletePlatform)="deletePlatform.emit($event)"
+											 (editPlatform)="editPlatform.emit($event)">
+		</app-card-platform>
+	</div>
+	<app-empty *ngIf="platforms && !platforms.length"
+						 icon="file">
+		<ng-container title>{{ 'EMPTY.PLATFORMS_TITLE' | translate }}</ng-container>
+		<ng-container subtitle>{{ 'EMPTY.PLATFORMS_SUBTITLE' | translate }}</ng-container>
+	</app-empty>
+</div>

@@ -1,0 +1,10 @@
+<div class="empty">
+	<mat-icon *ngIf="icon"
+						class="empty__image">{{icon}}</mat-icon>
+	<span class="empty__title">
+		<ng-content select="[title]"></ng-content>
+	</span>
+	<span class="empty__subtitle">
+		<ng-content select="[subtitle]"></ng-content>
+	</span>
+</div>

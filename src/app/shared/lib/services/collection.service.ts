@@ -6,6 +6,7 @@ import { GamesService } from 'src/app/core/services/games.service';
 import { GlobalLoadingService } from 'src/app/core/services/global-loading.service';
 import { PlatformsService } from 'src/app/core/services/platforms.service';
 import { CollectionType } from 'src/app/shared/lib/interfaces/collection-type.enum';
+import { RawgAPIRes } from 'src/app/shared/lib/interfaces/rawg/rawg-request.interface';
 import { SortDirectionName } from 'src/app/shared/lib/interfaces/sort-direction-name.enum';
 import { EntityCollection } from 'src/app/shared/lib/utils/entity-collection.class';
 
@@ -38,8 +39,8 @@ export class CollectionService {
 		private platformsService: PlatformsService
 	) { }
 
-	private checkIfAllCatalogueHasLoaded(totalItems: number, pageSize: number): void {
-		this.hasCollectionLoadedSource.next(totalItems < pageSize);
+	private checkIfAllCatalogueHasLoaded(res: RawgAPIRes): void {
+		this.hasCollectionLoadedSource.next(!!res.next);
 	}
 
 	private addItemsToCollection(collection: any[], isRefreshing?: boolean): void {
@@ -77,15 +78,14 @@ export class CollectionService {
 		this.showLoader(isRefreshing);
 		this.getHttpRequest(paramsWithPage, type)
 			.pipe(
-				tap((res: any) => {
-					console.log('res:', res);
-					const items = res['hydra:member'];
+				tap((res: RawgAPIRes) => {
+					const items = res.results;
 
 					if (isRefreshing) {
 						this.hasCollectionLoadedSource.next(INITIAL_HAS_COLLECTION_LOADED);
 					}
 					this.addItemsToCollection(items, isRefreshing);
-					this.checkIfAllCatalogueHasLoaded(items.length, params.itemsPerPage);
+					this.checkIfAllCatalogueHasLoaded(res);
 					this.currentPage++;
 					this.requestLoadedSource.next();
 				}),
@@ -133,11 +133,11 @@ export class CollectionService {
 		this.refreshCollection(params, CollectionType.GAMES);
 	}
 
-	loadCatalogue(params: RouteParams): void {
+	loadPlatforms(params: RouteParams): void {
 		this.loadCollection(params, CollectionType.PLATFORMS);
 	}
 
-	refreshCatalogue(params: RouteParams): void {
+	refreshPlatforms(params: RouteParams): void {
 		this.refreshCollection(params, CollectionType.PLATFORMS);
 	}
 
@@ -179,7 +179,7 @@ export class CollectionService {
 
 	clearCollectionAndRefresh(params: RouteParams): void {
 		this.clearCollection();
-		this.refreshCatalogue(params);
+		this.refreshPlatforms(params);
 	}
 
 	clearGamesAndRefresh(params: RouteParams): void {

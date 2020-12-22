@@ -1,0 +1,35 @@
+<mat-card class="card-platform"
+					(click)="selectedChange.emit(platform)"
+					(dblclick)="goToPlatform.emit(platform)">
+	<ng-container *ngIf="platform">
+		<div class="card-platform__menu">
+			<app-card-platform-menu [platform]="platform"
+															(deletePlatform)="deletePlatform.emit(platform)"
+															(editPlatform)="editPlatform.emit(platform)"></app-card-platform-menu>
+		</div>
+		<div class="card-platform__content">
+			<img *ngIf="platform?.image_background"
+					 mat-card-avatar
+					 class="card-platform__header-image"
+					 [src]="platform.image_background" />
+			<div mat-card-avatar
+					 *ngIf="!platform?.image_background"
+					 class="card-platform__header-image"
+					 [ngStyle]="{ 'background-color': platform?.name | nameToColors }">
+				<span class="card-platform__platform-abr">
+					{{ platform?.name | firstLetter }}
+				</span>
+			</div>
+			<div class="card-platform__title-div">
+				<span class="card-platform__title-text"
+							[matTooltip]="platform?.name"
+							[matTooltipShowDelay]="800">
+					{{ platform?.name }}</span>
+			</div>
+			<p class="card-platform__subtitle">
+				<!-- <span translate
+							[translateParams]="{ count: platform.extendedMetadata.descendantCounts.units }">platformS.TOTAL_UNITS</span> -->
+			</p>
+		</div>
+	</ng-container>
+</mat-card>

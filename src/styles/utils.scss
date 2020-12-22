@@ -21,3 +21,15 @@ $block: "utils";
 		outline: none;
 	}
 }
+
+@keyframes loading-platform {
+	to {
+		background-position:
+			350% 0,
+			var(--title-position),
+			var(--subtitle-1-position),
+			var(--avatar-position),
+			0 0
+		;
+	}
+}
