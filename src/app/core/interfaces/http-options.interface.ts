@@ -6,5 +6,6 @@ export interface HttpOptions {
 	params?: HttpParams;
 	reportProgress?: boolean;
 	responseType?: 'json';
+	withCredentials?: boolean;
 	body?: any;
 }

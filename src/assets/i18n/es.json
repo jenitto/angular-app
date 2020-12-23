@@ -15,6 +15,7 @@
 		"DELETE": "Borrar {itemName}",
 		"DELETED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido eliminada} other{ha sido eliminado}}"
 	},
+	"ORDER": "{order, select, nameasc{Name (A-Z)} namedesc{Name (Z-A)} other{undefined}}",
 	"TABS": {
 		"GAMES": "juegos",
 		"PLATFORMS": "plataformas",

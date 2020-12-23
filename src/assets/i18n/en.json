@@ -15,6 +15,7 @@
 		"DELETE": "Permanently delete {itemName}",
 		"DELETED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been deleted} other{has been deleted}}"
 	},
+	"ORDER": "{order, select, nameasc{Name (A-Z)} namedesc{Name (Z-A)} other{undefined}}",
 	"TABS": {
 		"GAMES": "games",
 		"PLATFORMS": "platforms",

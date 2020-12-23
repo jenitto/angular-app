@@ -4,7 +4,6 @@ import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 import { RouteParams } from 'src/app/core/interfaces/route.interface';
-import { PlatformsService } from 'src/app/core/services/platforms.service';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
 import { CollectionType } from 'src/app/shared/lib/interfaces/collection-type.enum';
 import { ConfirmAction } from 'src/app/shared/lib/interfaces/confirm-actions.enum';
@@ -31,7 +30,6 @@ export class PlatformsFacade {
 	private destroySubscriptions$ = new Subject<void>();
 
 	constructor(
-		private platformsService: PlatformsService,
 		private collectionService: CollectionService,
 		private confirmCatalogueService: ConfirmCatalogueService,
 		private snackBarService: SnackBarService,
@@ -45,11 +43,11 @@ export class PlatformsFacade {
 
 	getRouteParams(): RouteParams {
 		const params: RouteParams = {
-			itemsPerPage: PLATFORMS_PAGE_SIZE,
+			page_size: PLATFORMS_PAGE_SIZE,
 		};
 
 		if (this.sort) {
-			params.order = { [this.sort.active]: this.sort.direction };
+			params.ordering = this.sort.direction === 'desc' ? `-${this.sort.active}` : this.sort.active;
 		}
 
 		return params;
@@ -62,22 +60,6 @@ export class PlatformsFacade {
 	refreshPlatforms(): void {
 		this.collectionService.refreshPlatforms(this.getRouteParams());
 	}
-
-	// loadRecentPlatforms() {
-	// 	const params: RouteParams = {
-	// 		page: 1,
-	// 		itemsPerPage: RECENT_PlatformS_PAGE_SIZE,
-	// 		order: {
-	// 			updatedAt: 'desc'
-	// 		}
-	// 	};
-
-	// 	this.platformsService.getItems(params).pipe(
-	// 		takeUntil(this.destroySubscriptions$)
-	// 	).subscribe((res: HydraCollection<Catalogue>) => {
-	// 		this.recentPlatforms.addAll(res['hydra:member'] as Platform[]);
-	// 	});
-	// }
 
 	changeSort(sort: Sort): void {
 		this.sort = sort;

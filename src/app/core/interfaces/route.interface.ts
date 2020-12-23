@@ -1,19 +1,13 @@
+
 export interface RouteParams {
-	key?: string;
+	key?: string | string[];
 	id?: string | string[];
 	page?: number;
-	itemsPerPage?: number;
-	order?: {
-		name?: string;
-		updatedAt?: string;
-		archivedAt?: string;
-		usedDisk?: string;
-		totalUnits?: string;
-		descendantAmount?: string;
-	};
+	page_size?: number;
+	ordering?: string | OrderingEnum;
 }
 
-export interface RouteInterface {
-	routeName: string;
-	params?: RouteParams;
+export enum OrderingEnum {
+	NAME = 'name',
+	NAME_REVERSE = '-name',
 }

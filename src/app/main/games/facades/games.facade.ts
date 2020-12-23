@@ -41,11 +41,11 @@ export class GamesFacade {
 
 	getRouteParams(): RouteParams {
 		const params: RouteParams = {
-			itemsPerPage: PROJECTS_PAGE_SIZE,
+			page_size: PROJECTS_PAGE_SIZE,
 		};
 
 		if (this.sort) {
-			params.order = { [this.sort.active]: this.sort.direction };
+			params.ordering = this.sort.direction === 'desc' ? `-${this.sort.active}` : this.sort.active;
 		}
 
 		return params;
