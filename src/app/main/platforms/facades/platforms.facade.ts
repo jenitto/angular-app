@@ -88,6 +88,10 @@ export class PlatformsFacade {
 		this.collectionService.updateItem(platform.id, platform);
 	}
 
+	addPlatform(platform: Platform): void {
+		this.collectionService.addItem(platform);
+	}
+
 	destroySubscriptions(): void {
 		this.destroySubscriptions$.next();
 		this.collectionService.destroySubscriptions();

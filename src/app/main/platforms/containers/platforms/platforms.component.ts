@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, ComponentFactoryResolver, Injector, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ComponentFactoryResolver, ComponentRef, Injector, OnDestroy, OnInit } from '@angular/core';
 import { Sort } from '@angular/material/sort';
 import { Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { SidenavService } from 'src/app/core/services/sidenav.service';
+import { NewPlatformComponent } from 'src/app/main/platforms/containers/new-platform/new-platform.component';
 import { PlatformsFacade } from 'src/app/main/platforms/facades/platforms.facade';
 import { Platform } from 'src/app/shared/lib/interfaces/rawg/platform.interface';
 import { SortDirectionName } from 'src/app/shared/lib/interfaces/sort-direction-name.enum';
@@ -61,9 +62,13 @@ export class PlatformsComponent extends SidenavOpenerService implements OnInit, 
 		this.platformsFacade.loadPlatforms();
 	}
 
-	// onOpenNewPlatformSidenav(): void {
-	// 	this.openSidenav(NewplatformComponent);
-	// }
+	onOpenNewPlatformSidenav(): void {
+		const comp: ComponentRef<NewPlatformComponent> = this.openSidenav(NewPlatformComponent);
+
+		comp.instance.newPlatform.subscribe((updatedplatform: Platform) => {
+			this.platformsFacade.addPlatform(updatedplatform);
+		});
+	}
 
 	onGoToplatform(platform: Platform): void {
 		if (platform) {
@@ -76,13 +81,13 @@ export class PlatformsComponent extends SidenavOpenerService implements OnInit, 
 	}
 
 	onEditPlatform(platform: Platform): void {
-		// 	const data = this.sidenavService.createData({ ...platform });
+		const data = this.sidenavService.createData({ ...platform });
 
-		// 	const comp: ComponentRef<NewplatformComponent> = this.openSidenav(NewplatformComponent, data);
+		const comp: ComponentRef<NewPlatformComponent> = this.openSidenav(NewPlatformComponent, data);
 
-		// 	comp.instance.updatePlatform.subscribe((updatedplatform: Platform) => {
-		// 		this.platformsFacade.updatePlatform(updatedplatform);
-		// 	});
+		comp.instance.updatePlatform.subscribe((updatedplatform: Platform) => {
+			this.platformsFacade.updatePlatform(updatedplatform);
+		});
 	}
 
 	ngOnDestroy(): void {

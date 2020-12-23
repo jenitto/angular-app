@@ -212,7 +212,7 @@ $block: "app-table";
 		color: #a3c65e;
 	}
 
-	.ntx-table-name {
+	.app-table-name {
 
 		display: flex;
 		align-items: center;
@@ -274,7 +274,7 @@ $block: "app-table";
 		}
 	}
 
-	.ntx-table__title-click{
+	.app-table__title-click{
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -284,12 +284,12 @@ $block: "app-table";
 		z-index: 1;
 	}
 
-	.ntx-table-path{
+	.app-table-path{
 		display: flex;
 		align-items: center;
 	}
 
-	.ntx-table-status {
+	.app-table-status {
 		&--no-editable {
 			border-radius: 2px;
 			background-color: $color_grey_800;

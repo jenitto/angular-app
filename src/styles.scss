@@ -34,3 +34,34 @@
 	}
 
 }
+
+$large: 80vw;
+$large-breakpoint: 90vw;
+$small: 40vw;
+.app-sidenav {
+	transition: width 0.2s ease;
+	width: $large;
+
+	&.full {
+		width: 100vw;
+	}
+
+	&--small {
+		width: $small;
+	}
+
+}
+
+.mat-drawer-inner-container {
+	overflow-y: hidden;
+}
+
+@media screen and (max-width: $media-md) {
+	.app-sidenav {
+		width: $large-breakpoint;
+
+		&--small {
+			width: $small
+		}
+	}
+}

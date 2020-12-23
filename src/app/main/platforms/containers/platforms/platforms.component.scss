@@ -25,12 +25,4 @@ $block : 'platforms';
 		margin-top: $separation-24;
 		display: block;
 	}
-
-	&__button--right {
-		position: fixed;
-		bottom: 30px;
-		right: 35px;
-		z-index: 3;
-	}
-
 }

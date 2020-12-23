@@ -24,10 +24,6 @@
 												(editPlatform)="onEditPlatform($event)"
 												(goToplatform)="onGoToplatform($event)"></app-platforms-list>
 		<app-spinner [show]="arePlatformsLoading$ | async"></app-spinner>
-		<button class="platforms__button--right"
-						mat-fab
-						color="primary">
-			<mat-icon>add</mat-icon>
-		</button>
+		<app-button-fab (buttonClick)="onOpenNewPlatformSidenav()"></app-button-fab>
 	</div>
 </div>

@@ -3,7 +3,8 @@
 		"CANCEL": "cancel",
 		"CLOSE": "close",
 		"DELETE": "delete",
-		"EDIT": "edit"
+		"EDIT": "edit",
+		"SAVE": "save"
 	},
 	"ERRORS": {
 		"GO_HOME": "Go back to home",
@@ -14,6 +15,19 @@
 		"ARE_YOU_SURE_DELETE": "You are permanently deleting it, once deleted, you will not be able to recover it. Are you sure?",
 		"DELETE": "Permanently delete {itemName}",
 		"DELETED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been deleted} other{has been deleted}}"
+	},
+	"NEW_PLATFORM": {
+		"ADD_IMAGE": "Add image",
+		"ADD_PLATFORM": "Add platform",
+		"DELETE_IMAGE": "Delete image",
+		"EDIT_PLATFORM": "Edit platform",
+		"FORM": {
+			"NAME_MAX_LENGTH": "The name must contain less than 255 characters",
+			"NAME_MIN_LENGTH": "The name must contain at least 3 characters",
+			"NAME_REQUIRED": "The name is mandatory"
+		},
+		"NAME": "Platform name",
+		"NEW_PLATFORM": "New platform"
 	},
 	"ORDER": "{order, select, nameasc{Name (A-Z)} namedesc{Name (Z-A)} other{undefined}}",
 	"TABS": {

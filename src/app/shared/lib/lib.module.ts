@@ -21,9 +21,11 @@ import { NameToColorsPipe } from 'src/app/shared/lib/pipes/name-to-colors.pipe';
 import { ReversePipe } from 'src/app/shared/lib/pipes/reverse.pipe';
 import { SafeStylePipe } from 'src/app/shared/lib/pipes/sanitize/safe-style.pipe';
 import { MaterialModule } from 'src/app/shared/material/material.module';
+import { ButtonFabComponent } from './components/buttons/button-fab/button-fab.component';
 import { AutoLoadDirective } from './directives/auto-load.directive';
 import { SafeUrlPipe } from './pipes/sanitize/safe-url.pipe';
 import { TranslateCutPipe } from './pipes/translate-cut.pipe';
+
 @NgModule({
 	imports: [
 		CommonModule,
@@ -53,6 +55,7 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		CardPlatformMenuComponent,
 		EmptyComponent,
 		MenuButtonsComponent,
+		ButtonFabComponent,
 	],
 	exports: [
 		ReactiveFormsModule,
@@ -75,6 +78,7 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		CardPlatformMenuComponent,
 		EmptyComponent,
 		MenuButtonsComponent,
+		ButtonFabComponent,
 	],
 	entryComponents: [
 		DialogSimpleComponent,

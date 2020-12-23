@@ -3,7 +3,8 @@
 		"CANCEL": "cancelar",
 		"CLOSE": "cerrar",
 		"DELETE": "eliminar",
-		"EDIT": "editar"
+		"EDIT": "editar",
+		"SAVE": "guardar"
 	},
 	"ERRORS": {
 		"GO_HOME": "Volver al inicio",
@@ -14,6 +15,19 @@
 		"ARE_YOU_SURE_DELETE": "Vas a eliminar esto permanentemente, una vez eliminado no podrás recuperarlo. ¿Estás seguro?",
 		"DELETE": "Borrar {itemName}",
 		"DELETED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido eliminada} other{ha sido eliminado}}"
+	},
+	"NEW_PLATFORM": {
+		"ADD_IMAGE": "Añadir imagen",
+		"ADD_PLATFORM": "Añadir plataforma",
+		"DELETE_IMAGE": "Borrar imagen",
+		"EDIT_PLATFORM": "Editar plataforma",
+		"FORM": {
+			"NAME_MAX_LENGTH": "El nombre debe de contener menos de 255 caracteres",
+			"NAME_MIN_LENGTH": "El nombre debe de contener al menos 3 caracteres",
+			"NAME_REQUIRED": "El nombre es obligatorio"
+		},
+		"NAME": "Nombre de plataforma",
+		"NEW_PLATFORM": "Nueva plataforma"
 	},
 	"ORDER": "{order, select, nameasc{Name (A-Z)} namedesc{Name (Z-A)} other{undefined}}",
 	"TABS": {

@@ -1,0 +1,47 @@
+<mat-drawer-container class="new-platform__drawer-container">
+	<mat-drawer-content>
+		<div #parentMatDrawer
+				 class="new-platform__content app-sidenav">
+			<app-sidenav-toolbar (closeSidenav)="onCloseSidenav()"
+													 [actions]="toolbarActions"
+													 [isLoading]="isLoading">
+				<span *ngIf="!platform"
+							title>
+					{{ 'NEW_PLATFORM.ADD_PLATFORM' | translate }}
+				</span>
+				<span *ngIf="platform"
+							title>
+					{{ 'NEW_PLATFORM.EDIT_PLATFORM' | translate }}
+				</span>
+			</app-sidenav-toolbar>
+			<div class="new-platform__main">
+				<div class="new-platform__image-wrapper">
+					<img #image
+							 class="new-platform__image"
+							 [src]="platform?.image_background || 'assets/images/default_image.png'">
+				</div>
+				<form class="new-platform__form"
+							[formGroup]="platformForm">
+					<mat-form-field class="new-platform__form-field">
+						<input cdkFocusInitial
+									 matInput
+									 placeholder="{{ 'NEW_PLATFORM.NAME' | translate }}"
+									 formControlName="name"
+									 required>
+						<mat-error>
+							<span *ngIf="platformForm.get('name').hasError('required')">
+								{{ 'NEW_PLATFORM.FORM.NAME_REQUIRED' | translate }}
+							</span>
+							<span *ngIf="platformForm.get('name').hasError('mintrimlength')">
+								{{ 'NEW_PLATFORM.FORM.NAME_MIN_LENGTH' | translate }}
+							</span>
+							<span *ngIf="platformForm.get('name').hasError('maxlength')">
+								{{ 'NEW_PLATFORM.FORM.NAME_MAX_LENGTH' | translate }}
+							</span>
+						</mat-error>
+					</mat-form-field>
+				</form>
+			</div>
+		</div>
+	</mat-drawer-content>
+</mat-drawer-container>

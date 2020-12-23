@@ -1,0 +1,10 @@
+@import 'variables';
+
+$block : 'button-fab';
+
+.#{$block} {
+	position: fixed;
+	bottom: 30px;
+	right: 35px;
+	z-index: 3;
+}
