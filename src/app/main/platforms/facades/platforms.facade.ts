@@ -85,10 +85,20 @@ export class PlatformsFacade {
 	}
 
 	updatePlatform(platform: Platform): void {
+		const translation = this.translate.instant('ITEM.UPDATED', {
+			itemType: CollectionType.PLATFORMS,
+			itemName: platform.name
+		});
+		this.snackBarService.open(translation);
 		this.collectionService.updateItem(platform.id, platform);
 	}
 
 	addPlatform(platform: Platform): void {
+		const translation = this.translate.instant('ITEM.CREATED', {
+			itemType: CollectionType.PLATFORMS,
+			itemName: platform.name
+		});
+		this.snackBarService.open(translation);
 		this.collectionService.addItem(platform);
 	}
 

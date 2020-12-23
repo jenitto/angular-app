@@ -13,8 +13,10 @@
 	},
 	"ITEM": {
 		"ARE_YOU_SURE_DELETE": "Vas a eliminar esto permanentemente, una vez eliminado no podrás recuperarlo. ¿Estás seguro?",
+		"CREATED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido creada correctamente} other{ha sido creado correctamente}}",
 		"DELETE": "Borrar {itemName}",
-		"DELETED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido eliminada} other{ha sido eliminado}}"
+		"DELETED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido eliminada correctamente} other{ha sido eliminado correctamente}}",
+		"UPDATED": "{itemType, select, platforms{La plataforma} games{El juego} other{El ítem}} \"{itemName}\" {itemType, select, platforms{ha sido actualizada correctamente} other{ha sido actualizado correctamente}}"
 	},
 	"NEW_PLATFORM": {
 		"ADD_IMAGE": "Añadir imagen",
