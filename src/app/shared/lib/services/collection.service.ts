@@ -40,7 +40,7 @@ export class CollectionService {
 	) { }
 
 	private checkIfAllCatalogueHasLoaded(res: RawgAPIRes): void {
-		this.hasCollectionLoadedSource.next(!!res.next);
+		this.hasCollectionLoadedSource.next(!!!res.next);
 	}
 
 	private addItemsToCollection(collection: any[], isRefreshing?: boolean): void {
