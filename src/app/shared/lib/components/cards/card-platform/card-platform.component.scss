@@ -35,8 +35,8 @@ $block: "card-platform";
     justify-content: center;
 
 		&.mat-card-avatar {
-			height: 88px;
-			width: 88px;
+			height: 120px;
+			width: 120px;
 			background-position: center center;
 			user-select: none;
 		}
@@ -94,7 +94,7 @@ $block: "card-platform";
 		--card-height: 100%;
 		--card-skeleton: linear-gradient(white var(--card-height), transparent 0);
 
-		--avatar-size: 88px;
+		--avatar-size: 120px;
 		--avatar-position: 50% 26px;
 		--avatar-skeleton: radial-gradient(circle 44px at center, lightgrey 100%, transparent 0);
 

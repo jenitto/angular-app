@@ -3,7 +3,9 @@
 		"CANCEL": "cancelar",
 		"CLOSE": "cerrar",
 		"DELETE": "eliminar",
+		"DUPLICATE": "duplicar",
 		"EDIT": "editar",
+		"RENAME": "renombrar",
 		"SAVE": "guardar"
 	},
 	"ERRORS": {
@@ -31,7 +33,7 @@
 		"NAME": "Nombre de plataforma",
 		"NEW_PLATFORM": "Nueva plataforma"
 	},
-	"ORDER": "{order, select, nameasc{Name (A-Z)} namedesc{Name (Z-A)} other{undefined}}",
+	"ORDER": "{order, select, nameasc{Name (A-Z)} namedesc{Name (Z-A)} ratingdesc{Mejor valorados} metacriticdesc{Mejor valorados por Metacritic} releaseddesc{Más recientes} releasedasc{Más antiguos} other{undefined}}",
 	"TABS": {
 		"GAMES": "juegos",
 		"PLATFORMS": "plataformas",

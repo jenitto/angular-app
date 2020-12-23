@@ -30,7 +30,7 @@ export class PlatformsComponent extends SidenavOpenerService implements OnInit, 
 	havePlatformsLoaded$: Observable<boolean>;
 	checkScroll$: Observable<void>;
 
-	platformsSkeletons = new Array(3);
+	platformsSkeletons = new Array(6);
 
 	private refreshSubscription = new Subscription();
 	private destroySubscriptions$ = new Subject<void>();
@@ -70,9 +70,9 @@ export class PlatformsComponent extends SidenavOpenerService implements OnInit, 
 		});
 	}
 
-	onGoToplatform(platform: Platform): void {
+	onGoToPlatform(platform: Platform): void {
 		if (platform) {
-			this.router.navigate(['platform', platform.id]);
+			this.router.navigate(['games', platform.id]);
 		}
 	}
 

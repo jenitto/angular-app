@@ -5,23 +5,25 @@ import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 import { RouteParams } from 'src/app/core/interfaces/route.interface';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
+import { CollectionType } from 'src/app/shared/lib/interfaces/collection-type.enum';
 import { ConfirmAction } from 'src/app/shared/lib/interfaces/confirm-actions.enum';
+import { Game } from 'src/app/shared/lib/interfaces/rawg/game.interface';
 import { CollectionService } from 'src/app/shared/lib/services/collection.service';
 import { ConfirmCatalogueService } from 'src/app/shared/lib/services/confirm-catalogue.service';
 
-const PROJECTS_PAGE_SIZE = 20;
+const GAMES_PAGE_SIZE = 20;
 
 @Injectable()
 export class GamesFacade {
 
-	private sort: Sort = { active: 'name', direction: 'asc' };
+	private sort: Sort = { active: 'rating', direction: 'desc' };
 
 	private sortSource = new BehaviorSubject<Sort>(this.sort);
 
-	projects$: Observable<any[]>;
-	areProjectsLoading$: Observable<boolean>;
-	areProjectsRefreshing$: Observable<boolean>;
-	haveProjectsLoaded$: Observable<boolean>;
+	games$: Observable<any[]>;
+	areGamesLoading$: Observable<boolean>;
+	areGamesRefreshing$: Observable<boolean>;
+	haveGamesLoaded$: Observable<boolean>;
 	requestLoaded$: Observable<void>;
 	sort$ = this.sortSource.asObservable();
 
@@ -33,15 +35,16 @@ export class GamesFacade {
 		private snackBarService: SnackBarService,
 		private translate: TranslateService,
 	) {
-		this.projects$ = this.collectionService.collection$ as Observable<any[]>;
-		this.areProjectsLoading$ = this.collectionService.isCollectionLoading$;
-		this.haveProjectsLoaded$ = this.collectionService.hasCollectionLoaded$;
+		this.games$ = this.collectionService.collection$ as Observable<any[]>;
+		this.areGamesLoading$ = this.collectionService.isCollectionLoading$;
+		this.haveGamesLoaded$ = this.collectionService.hasCollectionLoaded$;
 		this.requestLoaded$ = this.collectionService.requestLoaded$;
 	}
 
 	getRouteParams(): RouteParams {
 		const params: RouteParams = {
-			page_size: PROJECTS_PAGE_SIZE,
+			page_size: GAMES_PAGE_SIZE,
+			dates: '1900-01-01,2021-06-30'
 		};
 
 		if (this.sort) {
@@ -51,55 +54,53 @@ export class GamesFacade {
 		return params;
 	}
 
-	loadProjects(): void {
+	loadGames(): void {
 		this.collectionService.loadGames(this.getRouteParams());
 	}
 
-	refreshProjects(): void {
+	refreshGames(): void {
 		this.collectionService.refreshGames(this.getRouteParams());
 	}
-
-	// loadRecentProjects() {
-	// 	const params: RouteParams = {
-	// 		page: 1,
-	// 		itemsPerPage: RECENT_PROJECTS_PAGE_SIZE,
-	// 		order: {
-	// 			updatedAt: 'desc'
-	// 		}
-	// 	};
-
-	// 	this.platformsService.getItems(params).pipe(
-	// 		takeUntil(this.destroySubscriptions$)
-	// 	).subscribe((res: HydraCollection<Catalogue>) => {
-	// 		this.recentProjects.addAll(res['hydra:member'] as Project[]);
-	// 	});
-	// }
 
 	changeSort(sort: Sort): void {
 		this.sort = sort;
 		this.sortSource.next(sort);
-		this.refreshProjects();
+		this.refreshGames();
 	}
 
-	deleteProject(project: any): void {
+	deleteGame(game: Game): void {
 		const translation = this.translate.instant('ITEM.DELETED', {
-			itemType: project['@type'],
-			itemName: project.name
+			itemType: CollectionType.GAMES,
+			itemName: game.name
 		});
 
-		this.confirmCatalogueService.launchDialog(project.name, ConfirmAction.DELETE)
+		this.confirmCatalogueService.launchDialog(game.name, ConfirmAction.DELETE)
 			.pipe(
 				filter(res => !!res),
 				tap(() => {
-					this.collectionService.removeItem(project.id);
+					this.collectionService.removeItem(game.id);
 					this.snackBarService.open(translation);
 				}),
-				// switchMap(() => this.platformsService.deleteItem(project.id))
+				// switchMap(() => this.gamesService.deleteItem(game.id))
 			).subscribe();
 	}
 
-	updateProject(project: any): void {
-		this.collectionService.updateItem(project.id, project);
+	updateGame(game: Game): void {
+		const translation = this.translate.instant('ITEM.UPDATED', {
+			itemType: CollectionType.GAMES,
+			itemName: game.name
+		});
+		this.snackBarService.open(translation);
+		this.collectionService.updateItem(game.id, game);
+	}
+
+	addGame(game: Game): void {
+		const translation = this.translate.instant('ITEM.CREATED', {
+			itemType: CollectionType.GAMES,
+			itemName: game.name
+		});
+		this.snackBarService.open(translation);
+		this.collectionService.addItem(game);
 	}
 
 	destroySubscriptions(): void {

@@ -1,0 +1,17 @@
+<div class="games-list">
+	<div class="games-list__games"
+			 *ngIf="!games || (games && games.length)">
+		<app-card-game class="games-list__grid-card"
+									 *ngFor="let game of (games && games.length ?  games : skeletons)"
+									 [game]="game"
+									 (goToGame)="goToGame.emit(game)"
+									 (deleteGame)="deleteGame.emit($event)"
+									 (editGame)="editGame.emit($event)">
+		</app-card-game>
+	</div>
+	<app-empty *ngIf="games && !games.length"
+						 icon="file">
+		<ng-container title>{{ 'EMPTY.GAMES_TITLE' | translate }}</ng-container>
+		<ng-container subtitle>{{ 'EMPTY.GAMES_SUBTITLE' | translate }}</ng-container>
+	</app-empty>
+</div>

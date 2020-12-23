@@ -3,11 +3,8 @@
 $block : 'games';
 
 .#{$block} {
-
-  &__content{
-    height: 100%;
-		overflow-y: scroll;
-	}
+	height: 100%;
+	overflow-y: scroll;
 
 	&__header {
 		display: flex;
@@ -28,12 +25,4 @@ $block : 'games';
 		margin-top: $separation-24;
 		display: block;
 	}
-
-	&__button--right {
-		position: fixed;
-		bottom: 30px;
-		right: 35px;
-		z-index: 3;
-	}
-
 }

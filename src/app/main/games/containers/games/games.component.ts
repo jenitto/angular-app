@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Observable, Subject, Subscription } from 'rxjs';
 import { SidenavService } from 'src/app/core/services/sidenav.service';
 import { GamesFacade } from 'src/app/main/games/facades/games.facade';
+import { Game } from 'src/app/shared/lib/interfaces/rawg/game.interface';
 import { SortDirectionName } from 'src/app/shared/lib/interfaces/sort-direction-name.enum';
 import { CollectionService } from 'src/app/shared/lib/services/collection.service';
 import { SidenavOpenerService } from 'src/app/shared/lib/utils/sidenav-opener.service';
@@ -18,17 +19,21 @@ import { SidenavOpenerService } from 'src/app/shared/lib/utils/sidenav-opener.se
 export class GamesComponent extends SidenavOpenerService implements OnInit, OnDestroy {
 
 	sortOptions: Sort[] = [
+		{ active: 'rating', direction: SortDirectionName.DESC },
+		{ active: 'metacritic', direction: SortDirectionName.DESC },
+		{ active: 'released', direction: SortDirectionName.ASC },
+		{ active: 'released', direction: SortDirectionName.DESC },
 		{ active: 'name', direction: SortDirectionName.ASC },
-		{ active: 'name', direction: SortDirectionName.DESC }
+		{ active: 'name', direction: SortDirectionName.DESC },
 	];
 
-	projects$: Observable<any[]>;
-	areProjectsLoading$: Observable<boolean>;
-	areProjectsRefreshing$: Observable<boolean>;
-	haveProjectsLoaded$: Observable<boolean>;
+	games$: Observable<any[]>;
+	areGamesLoading$: Observable<boolean>;
+	areGamesRefreshing$: Observable<boolean>;
+	haveGamesLoaded$: Observable<boolean>;
 	checkScroll$: Observable<void>;
 
-	projectsSkeletons$ = new Array(3);
+	gamesSkeletons = new Array(6);
 
 	private refreshSubscription = new Subscription();
 	private destroySubscriptions$ = new Subject<void>();
@@ -41,15 +46,15 @@ export class GamesComponent extends SidenavOpenerService implements OnInit, OnDe
 		private router: Router,
 	) {
 		super(sidenavService, componentFactoryResolver, injector);
-		this.projects$ = this.gamesFacade.projects$;
-		this.areProjectsLoading$ = this.gamesFacade.areProjectsLoading$;
-		this.areProjectsRefreshing$ = this.gamesFacade.areProjectsRefreshing$;
-		this.haveProjectsLoaded$ = this.gamesFacade.haveProjectsLoaded$;
+		this.games$ = this.gamesFacade.games$;
+		this.areGamesLoading$ = this.gamesFacade.areGamesLoading$;
+		this.areGamesRefreshing$ = this.gamesFacade.areGamesRefreshing$;
+		this.haveGamesLoaded$ = this.gamesFacade.haveGamesLoaded$;
 		this.checkScroll$ = this.gamesFacade.requestLoaded$;
 	}
 
 	ngOnInit(): void {
-		this.gamesFacade.refreshProjects();
+		this.gamesFacade.refreshGames();
 	}
 
 	onSortChange(sort: Sort): void {
@@ -57,39 +62,26 @@ export class GamesComponent extends SidenavOpenerService implements OnInit, OnDe
 	}
 
 	onScrollDown(): void {
-		this.gamesFacade.loadProjects();
+		this.gamesFacade.loadGames();
 	}
 
-	// onOpenNewPlatformSidenav(): void {
-	// 	this.openSidenav(NewProjectComponent);
-	// }
-
-	// onOpenPermissionsManager(project: any) {
-	// 	const data = this.sidenavService.createData({
-	// 		catalogue: project
-	// 	});
-	// 	this.openSidenav(CatalogueUsersRolesComponent, data);
-	// }
-
-	onGoToProject(project: any, recentProject = false) {
-		if (project) {
-			this.router.navigate(['project', project.id]);
+	onGoToGame(game: Game): void {
+		if (game) {
+			this.router.navigate(['game', game.id]);
 		}
 	}
 
-	onDeleteProject(project: any) {
-		this.gamesFacade.deleteProject(project);
+	onDeleteGame(game: Game): void {
+		this.gamesFacade.deleteGame(game);
 	}
 
-	// onEditProject(project: any) {
-	// 	const data = this.sidenavService.createData({ ...project });
+	onRenameGame(game: Game): void {
+		// TO DO
+	}
 
-	// 	const comp: ComponentRef<NewProjectComponent> = this.openSidenav(NewProjectComponent, data);
-
-	// 	comp.instance.updateProject.subscribe((updatedProject: any) => {
-	// 		this.gamesFacade.updateProject(updatedProject);
-	// 	});
-	// }
+	onDuplicateGame(game: Game): void {
+		// TO DO
+	}
 
 	ngOnDestroy(): void {
 		this.destroySubscriptions$.next();

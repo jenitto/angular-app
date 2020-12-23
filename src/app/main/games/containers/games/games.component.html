@@ -1,1 +1,29 @@
-<div>GAMES</div>
+<div class="games"
+		 infiniteScroll
+		 [infiniteScrollDistance]="2"
+		 [infiniteScrollUpDistance]="1.5"
+		 [infiniteScrollThrottle]="50"
+		 (scrolled)="onScrollDown()"
+		 [scrollWindow]="false"
+		 appAutoload
+		 [autoloadCheckScroll$]="checkScroll$"
+		 (autoloadLoadMore)="onScrollDown()">
+	<div class="games__main main-container">
+		<div class="games__header">
+			<h2 class="mat-h2 games__title utils--uppercase">{{ 'TABS.GAMES' | translate}}</h2>
+			<app-select [options]="sortOptions"
+									(selectionChange)="onSortChange($event)"
+									[value]="sortOptions[0]"
+									translateKeyPrefix="ORDER">
+			</app-select>
+		</div>
+		<app-games-list class="games__list"
+										[games]="games$ | async"
+										[skeletons]="gamesSkeletons"
+										(deleteGame)="onDeleteGame($event)"
+										(renameGame)="onRenameGame($event)"
+										(duplicateGame)="onDuplicateGame($event)"
+										(goToGame)="onGoToGame($event)"></app-games-list>
+		<app-spinner [show]="areGamesLoading$ | async"></app-spinner>
+	</div>
+</div>

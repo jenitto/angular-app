@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { delay } from 'rxjs/internal/operators';
 import { RawgEndpointsEnum } from 'src/app/core/interfaces/rawg.config';
 import { RouteParams } from 'src/app/core/interfaces/route.interface';
 import { HttpClientService } from 'src/app/core/services/http-client.service';
+import { Game } from 'src/app/shared/lib/interfaces/rawg/game.interface';
 
 @Injectable({
 	providedIn: 'root'
@@ -17,96 +19,20 @@ export class GamesService {
 		return this.http.get(RawgEndpointsEnum.GAMES, params);
 	}
 
-	// getItem(id: string, params: RouteParams = {}): Observable<Catalogue> {
-	// 	return this.http.get({
-	// 		routeName: 'api_catalogues_get_item',
-	// 		params: { ...params, id }
-	// 	});
-	// }
+	postItem(gamePostData: any, cover?: File): Observable<Game> {
+		// return this.http.post(RawgEndpointsEnum.GAMES, gamePostData);
+		return of(gamePostData).pipe(delay(200));
 
-	// moveItem(id: string, parent: string): Observable<Unit> {
-	// 	const payload: RouteParams = { parent };
+	}
 
-	// 	return this.http.put<Unit>(
-	// 		{ routeName: 'api_catalogues_put_item', params: { id } },
-	// 		payload
-	// 	);
-	// }
+	updateItem(gamePostData: any, cover?: File): Observable<Game> {
+		// return this.http.put(RawgEndpointsEnum.GAMES, {params: { id: game.id }}, gamePostData);
+		return of(gamePostData).pipe(delay(200));
+	}
 
-	// moveItems(ids: string[], parent: string): Observable<(Unit | Folder)[]> {
-	// 	const httpCalls: Observable<any>[] = [];
-	// 	const payload: RouteParams = { parent };
-
-	// 	ids.forEach((id: string) => {
-	// 		httpCalls.push(
-	// 			this.http.put<(Unit | Folder)>(
-	// 				{ routeName: 'api_catalogues_put_item', params: { id } },
-	// 				payload,
-	// 				{ headers: BatchService.HEADERS_CONTENT_TYPE_BATCH }
-	// 			)
-	// 		);
-	// 	});
-
-	// 	return forkJoin(httpCalls);
-	// }
-
-	// archiveItem(id: string): Observable<void> {
-	// 	return this.http.patch<void>(
-	// 		{ routeName: 'api_catalogues_archive_item', params: { id } },
-	// 		{}
-	// 	);
-	// }
-
-	// deleteItem(id: string): Observable<void> {
-	// 	return this.http.delete<void>({
-	// 		routeName: 'api_catalogues_delete_item',
-	// 		params: { id }
-	// 	});
-	// }
-
-	// deleteItems(ids: string[]): Observable<any[]> {
-	// 	const httpCalls: Observable<any>[] = [];
-
-	// 	ids.forEach((id: string) => {
-	// 		httpCalls.push(
-	// 			this.http.delete(
-	// 				{ routeName: 'api_catalogues_delete_item', params: { id } },
-	// 				{ headers: BatchService.HEADERS_CONTENT_TYPE_BATCH }
-	// 			)
-	// 		);
-	// 	});
-
-	// 	return forkJoin(httpCalls);
-	// }
-
-	// restoreItem(id: string): Observable<Catalogue> {
-	// 	return this.http.patch<Catalogue>(
-	// 		{ routeName: 'api_catalogues_unarchive_item', params: { id } },
-	// 		{}
-	// 	);
-	// }
-
-	// restoreItems(ids: string[]): Observable<any> {
-	// 	const httpCalls: Observable<any>[] = [];
-
-	// 	ids.forEach((id: string) => {
-	// 		httpCalls.push(
-	// 			this.http.patch(
-	// 				{ routeName: 'api_catalogues_unarchive_item', params: { id } },
-	// 				null,
-	// 				{ headers: BatchService.HEADERS_CONTENT_TYPE_BATCH }
-	// 			)
-	// 		);
-	// 	});
-
-	// 	return forkJoin(httpCalls);
-	// }
-
-	// update(id: string, update: any) {
-	// 	return this.http.put(
-	// 		{ routeName: 'api_catalogues_put_item', params: { id } },
-	// 		update
-	// 	);
-	// }
+	deleteItem(id: string): Observable<string> {
+		// return this.http.delete(RawgEndpointsEnum.GAMES, {params: { id }});
+		return of(id).pipe(delay(200));
+	}
 
 }

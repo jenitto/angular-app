@@ -22,7 +22,7 @@
 												[skeletons]="platformsSkeletons"
 												(deletePlatform)="onDeletePlatform($event)"
 												(editPlatform)="onEditPlatform($event)"
-												(goToplatform)="onGoToplatform($event)"></app-platforms-list>
+												(goToPlatform)="onGoToPlatform($event)"></app-platforms-list>
 		<app-spinner [show]="arePlatformsLoading$ | async"></app-spinner>
 		<app-button-fab (buttonClick)="onOpenNewPlatformSidenav()"></app-button-fab>
 	</div>

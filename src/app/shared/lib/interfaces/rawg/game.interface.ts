@@ -1,5 +1,5 @@
 export interface Game {
-	id: number;
+	id: string;
 	slug: string;
 	name: string;
 	released: string;
@@ -20,8 +20,8 @@ export interface Game {
 	reviews_count: number;
 	saturated_color: string;
 	dominant_color: string;
-	platforms: GamePlatform[];
-	parent_platforms: GamePlatform[];
+	platforms: GamePlatforms[];
+	parent_platforms: GamePlatforms[];
 	genres: Genre[];
 	stores: Store[];
 	clip?: any;
@@ -66,6 +66,10 @@ interface Tag {
 	language: string;
 	games_count: number;
 	image_background: string;
+}
+
+interface GamePlatforms {
+	platform: GamePlatform;
 }
 
 interface GamePlatform {

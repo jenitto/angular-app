@@ -4,6 +4,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { CardGameMenuComponent } from 'src/app/shared/lib/components/cards/card-game/card-game-menu/card-game-menu.component';
+import { CardGameComponent } from 'src/app/shared/lib/components/cards/card-game/card-game.component';
 import { CardPlatformMenuComponent } from 'src/app/shared/lib/components/cards/card-platform/card-platform-menu/card-platform-menu.component';
 import { CardPlatformComponent } from 'src/app/shared/lib/components/cards/card-platform/card-platform.component';
 import { DialogSimpleComponent } from 'src/app/shared/lib/components/dialogs/dialog-simple/dialog-simple.component';
@@ -53,6 +55,8 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		SelectComponent,
 		CardPlatformComponent,
 		CardPlatformMenuComponent,
+		CardGameComponent,
+		CardGameMenuComponent,
 		EmptyComponent,
 		MenuButtonsComponent,
 		ButtonFabComponent,
@@ -76,6 +80,8 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		SelectComponent,
 		CardPlatformComponent,
 		CardPlatformMenuComponent,
+		CardGameComponent,
+		CardGameMenuComponent,
 		EmptyComponent,
 		MenuButtonsComponent,
 		ButtonFabComponent,

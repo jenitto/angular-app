@@ -25,9 +25,13 @@ export class PlatformsService {
 	}
 
 	updateItem(platformPostData: any, cover?: File): Observable<Platform> {
-		// return this.http.put(RawgEndpointsEnum.PLATFORMS, params: { id: platform.id } platformPostData);
+		// return this.http.put(RawgEndpointsEnum.PLATFORMS, {params: { id: platform.id }}, platformPostData);
 		return of(platformPostData).pipe(delay(200));
+	}
 
+	deleteItem(id: string): Observable<string> {
+		// return this.http.delete(RawgEndpointsEnum.PLATFORMS, {params: { id }});
+		return of(id).pipe(delay(200));
 	}
 
 }

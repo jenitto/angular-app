@@ -4,10 +4,8 @@ export interface RouteParams {
 	id?: string | string[];
 	page?: number;
 	page_size?: number;
-	ordering?: string | OrderingEnum;
-}
-
-export enum OrderingEnum {
-	NAME = 'name',
-	NAME_REVERSE = '-name',
+	ordering?: string;
+	search?: string;
+	platforms?: string;
+	dates?: string;
 }
