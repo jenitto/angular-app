@@ -16,4 +16,7 @@ export class PlatformsListComponent {
 	@Output() editPlatform = new EventEmitter<Platform>();
 	@Output() goToPlatform = new EventEmitter<Platform>();
 
+	trackByFn(index: number, item: Platform): string | number {
+		return item ? item.id : index;
+	}
 }

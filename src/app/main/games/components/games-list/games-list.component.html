@@ -2,11 +2,11 @@
 	<div class="games-list__games"
 			 *ngIf="!games || (games && games.length)">
 		<app-card-game class="games-list__grid-card"
-									 *ngFor="let game of (games && games.length ?  games : skeletons)"
+									 *ngFor="let game of (games && games.length ?  games : skeletons); ; trackBy: trackByFn"
 									 [game]="game"
 									 (goToGame)="goToGame.emit(game)"
 									 (deleteGame)="deleteGame.emit($event)"
-									 (editGame)="editGame.emit($event)">
+									 (renameGame)="renameGame.emit($event)">
 		</app-card-game>
 	</div>
 	<app-empty *ngIf="games && !games.length"

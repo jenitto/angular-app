@@ -66,19 +66,4 @@ export class NavbarComponent extends SidenavOpenerService implements OnInit {
 		this.matDialog.open(DialogSimpleComponent, dialogConfig);
 	}
 
-	// onOpenSearchSidenav(showArchived: boolean) {
-	// 	const projectId = this.navbarFacade.getCurrentProjectId();
-
-	// 	if (showArchived) {
-	// 		this.navbarAnalyticsService.openSearchArchived(projectId);
-	// 	}
-
-	// 	const data = this.sidenavService.createData({
-	// 		parentId: projectId,
-	// 		showArchived: showArchived
-	// 	});
-
-	// 	this.openSidenav(GlobalSearcherComponent, data);
-	// }
-
 }

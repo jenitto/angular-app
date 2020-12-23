@@ -18,7 +18,7 @@ export class CardGameComponent implements OnInit {
 	@Output() selectedChange = new EventEmitter<boolean>();
 	@Output() deleteGame = new EventEmitter<Game>();
 	@Output() duplicateGame = new EventEmitter<Game>();
-	@Output() rename = new EventEmitter<Game>();
+	@Output() renameGame = new EventEmitter<Game>();
 
 	backgroundImage: string;
 
@@ -42,10 +42,6 @@ export class CardGameComponent implements OnInit {
 		if (game) {
 			this.router.navigate(['game', game.id]);
 		}
-	}
-
-	onRename(): void {
-		this.rename.emit(this.game);
 	}
 
 	getPlatforms(): string {

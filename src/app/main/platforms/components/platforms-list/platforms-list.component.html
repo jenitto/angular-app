@@ -2,7 +2,7 @@
 	<div class="platforms-list__platforms"
 			 *ngIf="!platforms || (platforms && platforms.length)">
 		<app-card-platform class="platforms-list__grid-card"
-											 *ngFor="let platform of (platforms && platforms.length ?  platforms : skeletons)"
+											 *ngFor="let platform of (platforms && platforms.length ?  platforms : skeletons); trackBy: trackByFn"
 											 [platform]="platform"
 											 (goToPlatform)="goToPlatform.emit(platform)"
 											 (deletePlatform)="deletePlatform.emit($event)"

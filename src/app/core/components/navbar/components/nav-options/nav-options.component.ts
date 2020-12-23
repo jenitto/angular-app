@@ -8,7 +8,7 @@ import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/cor
 })
 export class NavOptionsComponent {
 
-	@Output() openSearchSidenav = new EventEmitter<boolean>();
+	// @Output() openSearchSidenav = new EventEmitter<boolean>();
 	@Output() openVersionDialog = new EventEmitter<void>();
 
 }

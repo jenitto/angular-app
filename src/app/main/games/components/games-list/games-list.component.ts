@@ -16,4 +16,7 @@ export class GamesListComponent {
 	@Output() renameGame = new EventEmitter<Game>();
 	@Output() goToGame = new EventEmitter<Game>();
 
+	trackByFn(index: number, item: Game): string | number {
+		return item ? item.id : index;
+	}
 }
