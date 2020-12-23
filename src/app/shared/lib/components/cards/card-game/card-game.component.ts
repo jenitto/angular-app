@@ -49,6 +49,6 @@ export class CardGameComponent implements OnInit {
 	}
 
 	getPlatforms(): string {
-		return this.game.platforms.map((a) => a.platform.name).toString();
+		return this.game.platforms?.map((a) => a.platform.name).toString();
 	}
 }
