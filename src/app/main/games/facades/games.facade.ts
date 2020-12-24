@@ -50,7 +50,8 @@ export class GamesFacade {
 	getRouteParams(): RouteParams {
 		const params: RouteParams = {
 			page_size: GAMES_PAGE_SIZE,
-			dates: '1900-01-01,2021-06-30'
+			dates: '1900-01-01,2021-06-30',
+			search_exact: true,
 		};
 
 		if (this.sort) {

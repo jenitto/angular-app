@@ -6,6 +6,7 @@ export interface RouteParams {
 	page_size?: number;
 	ordering?: string;
 	search?: string;
+	search_exact: boolean;
 	platforms?: string;
 	dates?: string;
 }
