@@ -25,7 +25,9 @@
 		"CREATED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been created correctly} other{has been created correctly}}",
 		"DELETE": "Permanently delete {itemName}",
 		"DELETED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been deleted correctly} other{has been deleted correctly}}",
+		"DUPLICATED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been duplicated correctly} other{has been duplicated correctly}}",
 		"RENAME": "Rename {itemName}",
+		"RENAMED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been renamed correctly} other{has been renamed correctly}}",
 		"UPDATED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been updated correctly} other{has been updated correctly}}"
 	},
 	"NEW_PLATFORM": {

@@ -127,9 +127,17 @@ export class GamesFacade {
 				tap((result: any) => {
 					const newGameData = { ...game, name: result.text };
 					this.collectionService.updateItem(game.id, newGameData);
-					this.snackBarService.open(this.translate.instant('ITEM.RENAMED', { itemName: newInputText }));
+					this.snackBarService.open(this.translate.instant('ITEM.RENAMED', { itemType: CollectionType.GAMES, itemName: newInputText }));
 				})
 			).subscribe();
+	}
+
+	duplicateGame(game: Game): void {
+		const newGame = { ...game, id: `${game.id}-copy`, name: `${game.name}-copy` }
+		const index = this.collectionService.getCollectionSync()
+			.findIndex((item: Game) => item.id === game.id);
+		this.collectionService.addItemInIndex(newGame, index + 1);
+		this.snackBarService.open(this.translate.instant('ITEM.DUPLICATED', { itemType: CollectionType.GAMES, itemName: game.name }));
 	}
 
 	destroySubscriptions(): void {

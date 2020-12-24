@@ -14,6 +14,7 @@ export class GamesListComponent {
 
 	@Output() deleteGame = new EventEmitter<Game>();
 	@Output() renameGame = new EventEmitter<Game>();
+	@Output() duplicateGame = new EventEmitter<Game>();
 	@Output() goToGame = new EventEmitter<Game>();
 
 	trackByFn(index: number, item: Game): string | number {

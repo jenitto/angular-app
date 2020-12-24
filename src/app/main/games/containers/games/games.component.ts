@@ -80,7 +80,7 @@ export class GamesComponent extends SidenavOpenerService implements OnInit, OnDe
 	}
 
 	onDuplicateGame(game: Game): void {
-		// TO DO
+		this.gamesFacade.duplicateGame(game);
 	}
 
 	onSearch(term: string): void {

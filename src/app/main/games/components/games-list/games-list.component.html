@@ -6,7 +6,8 @@
 									 [game]="game"
 									 (goToGame)="goToGame.emit(game)"
 									 (deleteGame)="deleteGame.emit($event)"
-									 (renameGame)="renameGame.emit($event)">
+									 (renameGame)="renameGame.emit($event)"
+									 (duplicateGame)="duplicateGame.emit($event)">
 		</app-card-game>
 	</div>
 	<app-empty *ngIf="games && !games.length"
