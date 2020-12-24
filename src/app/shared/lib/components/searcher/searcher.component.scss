@@ -1,0 +1,68 @@
+@import 'variables';
+
+$block: "searcher";
+
+.#{$block} {
+	display: inline-flex;
+	font-size: 16px;
+
+	&__button {
+		width: 40px;
+		height: 40px;
+		line-height: 40px;
+	}
+
+	&__form {
+		display: flex;
+    justify-content: center;
+    align-items: center;
+	}
+
+	.mat-form-field-flex {
+		display: flex;
+    justify-content: center;
+    align-items: center;
+		padding-top: 0 !important;
+	}
+
+	.mat-form-field-infix {
+		margin: 0 $separation-8;
+	}
+
+	.mat-form-field-wrapper {
+		padding: 0 !important;
+	}
+
+	.mat-form-field-infix {
+		border-top-width: 0 !important;
+	}
+
+	.mat-form-field-underline {
+		position: absolute;
+		bottom: -6px;
+		width: calc(100% + 40px);
+	}
+
+	&__form_field--hide-underline .mat-form-field-underline {
+		display: none !important;
+	}
+	
+}
+
+.#{$block}--light {
+	& input.mat-input-element,
+	.mat-form-field-prefix,
+	.mat-form-field-suffix,
+	.mat-icon-button {
+		color: $color_grey_600;
+	}
+}
+
+.#{$block}--dark {
+	& input.mat-input-element,
+	.mat-form-field-prefix,
+	.mat-form-field-suffix,
+	.mat-icon-button {
+		color: $color_grey_700;
+	}
+}

@@ -1,0 +1,36 @@
+<div [class]="'searcher searcher--' + color">
+	<form *ngIf="showSearchBar"
+				class="searcher__form"
+				[formGroup]="searchForm"
+				(ngSubmit)="$event.stopPropagation(); onSubmit()">
+		<mat-form-field class="searcher__form_field"
+										[ngClass]="{'searcher__form_field--hide-underline': hideUnderline}"
+										appearance="standard"
+										color="primary">
+			<input appAutofocus
+						 matInput
+						 color="primary"
+						 [placeholder]="'SEARCHER.PLACEHOLDER' | translate"
+						 formControlName="term">
+			<mat-icon matPrefix>search</mat-icon>
+		</mat-form-field>
+		<button class="searcher__button"
+						mat-icon-button
+						matSuffix
+						type="button"
+						[matTooltip]="'BUTTONS.CLOSE' | translate"
+						(click)="toggleSearchBar()">
+			<mat-icon>close</mat-icon>
+		</button>
+
+	</form>
+	<button *ngIf="!showSearchBar"
+					class="searcher__button"
+					mat-icon-button
+					type="button"
+					[matTooltip]="'SEARCHER.TOOLTIP' | translate"
+					[disabled]="disable"
+					(click)="toggleSearchBar()">
+		<mat-icon>search</mat-icon>
+	</button>
+</div>

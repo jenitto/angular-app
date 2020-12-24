@@ -33,7 +33,7 @@ export class TabService {
 				route: '/games'
 			},
 			{
-				title: 'TABS.REPORTS',
+				title: 'TABS.UNKNOWN',
 				route: '/reports',
 			}
 		];

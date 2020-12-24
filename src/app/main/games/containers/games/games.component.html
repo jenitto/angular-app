@@ -11,11 +11,25 @@
 	<div class="games__main main-container">
 		<div class="games__header">
 			<h2 class="mat-h2 games__title utils--uppercase">{{ 'TABS.GAMES' | translate}}</h2>
-			<app-select [options]="sortOptions"
-									(selectionChange)="onSortChange($event)"
-									[value]="sortOptions[0]"
-									translateKeyPrefix="ORDER">
-			</app-select>
+			<div class="games__options">
+				<app-searcher class="games__searcher"
+											(changeSearch)="onSearch($event)"
+											(submitSearch)="onSearch($event)"
+											(closeSearcher)="onCloseSearcher()"></app-searcher>
+				<app-select [options]="sortOptions"
+										(selectionChange)="onSortChange($event)"
+										[value]="sortOptions[0]"
+										translateKeyPrefix="ORDER">
+				</app-select>
+				<!-- <button mat-icon-button
+								(click)="onChangeView()">
+					<mat-icon *ngIf="showTableView$ | async; else tableIcon"
+										matTooltip="{{ 'BUTTONS.GRID_VIEW' | translate }}">view-module</mat-icon>
+					<ng-template #tableIcon>
+						<mat-icon matTooltip="{{ 'BUTTONS.LIST_VIEW' | translate }}">view-list</mat-icon>
+					</ng-template>
+				</button> -->
+			</div>
 		</div>
 		<app-games-list class="games__list"
 										[games]="games$ | async"

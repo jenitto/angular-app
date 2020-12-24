@@ -83,6 +83,14 @@ export class GamesComponent extends SidenavOpenerService implements OnInit, OnDe
 		// TO DO
 	}
 
+	onSearch(term: string): void {
+		this.gamesFacade.search(term);
+	}
+
+	onCloseSearcher(): void {
+		this.gamesFacade.cleanSearch();
+	}
+
 	ngOnDestroy(): void {
 		this.destroySubscriptions$.next();
 		this.gamesFacade.destroySubscriptions();

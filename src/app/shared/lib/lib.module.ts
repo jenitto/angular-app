@@ -11,9 +11,11 @@ import { CardPlatformComponent } from 'src/app/shared/lib/components/cards/card-
 import { DialogSimpleComponent } from 'src/app/shared/lib/components/dialogs/dialog-simple/dialog-simple.component';
 import { EmptyComponent } from 'src/app/shared/lib/components/empty/empty.component';
 import { MenuButtonsComponent } from 'src/app/shared/lib/components/menu-buttons/menu-buttons.component';
+import { SearcherComponent } from 'src/app/shared/lib/components/searcher/searcher.component';
 import { SelectComponent } from 'src/app/shared/lib/components/select/select.component';
 import { SidenavToolbarComponent } from 'src/app/shared/lib/components/sidenav-toolbar/sidenav-toolbar.component';
 import { SpinnerComponent } from 'src/app/shared/lib/components/spinner/spinner.component';
+import { AutofocusDirective } from 'src/app/shared/lib/directives/autofocus.directive';
 import { ClickOutsideDirective } from 'src/app/shared/lib/directives/click-outside.directive';
 import { ParallaxDirective } from 'src/app/shared/lib/directives/parallax.directive';
 import { ScrollingDirective } from 'src/app/shared/lib/directives/scrolling.directive';
@@ -38,17 +40,18 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		TranslateModule
 	],
 	declarations: [
-		ClickOutsideDirective,
 		SafeStylePipe,
 		FileSizePipe,
 		FirstLetterPipe,
-		ScrollingDirective,
-		ParallaxDirective,
 		ReversePipe,
 		TranslateCutPipe,
 		NameToColorsPipe,
-		AutoLoadDirective,
 		SafeUrlPipe,
+		ClickOutsideDirective,
+		ScrollingDirective,
+		ParallaxDirective,
+		AutofocusDirective,
+		AutoLoadDirective,
 		DialogSimpleComponent,
 		SidenavToolbarComponent,
 		SpinnerComponent,
@@ -60,19 +63,20 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		EmptyComponent,
 		MenuButtonsComponent,
 		ButtonFabComponent,
+		SearcherComponent,
 	],
 	exports: [
-		ReactiveFormsModule,
-		ClickOutsideDirective,
 		SafeStylePipe,
-		SafeUrlPipe,
 		FileSizePipe,
 		FirstLetterPipe,
-		ScrollingDirective,
-		ParallaxDirective,
 		ReversePipe,
 		TranslateCutPipe,
 		NameToColorsPipe,
+		SafeUrlPipe,
+		ClickOutsideDirective,
+		ScrollingDirective,
+		ParallaxDirective,
+		AutofocusDirective,
 		AutoLoadDirective,
 		DialogSimpleComponent,
 		SidenavToolbarComponent,
@@ -85,6 +89,7 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		EmptyComponent,
 		MenuButtonsComponent,
 		ButtonFabComponent,
+		SearcherComponent,
 	],
 	entryComponents: [
 		DialogSimpleComponent,

@@ -5,6 +5,8 @@
 		"DELETE": "eliminar",
 		"DUPLICATE": "duplicar",
 		"EDIT": "editar",
+		"GRID_VIEW": "Vista en cuadrícula",
+		"LIST_VIEW": "Vista en lista",
 		"RENAME": "renombrar",
 		"SAVE": "guardar"
 	},
@@ -34,10 +36,14 @@
 		"NEW_PLATFORM": "Nueva plataforma"
 	},
 	"ORDER": "{order, select, nameasc{Name (A-Z)} namedesc{Name (Z-A)} ratingdesc{Mejor valorados} metacriticdesc{Mejor valorados por Metacritic} releaseddesc{Más recientes} releasedasc{Más antiguos} other{undefined}}",
+	"SEARCHER": {
+		"PLACEHOLDER": "Buscar...",
+		"TOOLTIP": "Buscar"
+	},
 	"TABS": {
 		"GAMES": "juegos",
 		"PLATFORMS": "plataformas",
-		"REPORTS": "informes"
+		"UNKNOWN": "desconocido"
 	},
 	"USER_MENU": {
 		"ABOUT": "Sobre mi"

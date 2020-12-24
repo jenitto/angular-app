@@ -20,6 +20,18 @@ $block : 'games';
 		font-weight: 500;
 		user-select: none;
 	}
+	
+	&__options {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+	}
+
+	&__options .mat-icon-button,
+	&__searcher {
+		color: $color_grey_600;
+		margin: 0 $separation-16;
+	}
 
 	&__list {
 		margin-top: $separation-24;

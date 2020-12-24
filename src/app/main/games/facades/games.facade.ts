@@ -17,6 +17,7 @@ const GAMES_PAGE_SIZE = 20;
 export class GamesFacade {
 
 	private sort: Sort = { active: 'rating', direction: 'desc' };
+	private searchTerm = '';
 
 	private sortSource = new BehaviorSubject<Sort>(this.sort);
 
@@ -49,6 +50,9 @@ export class GamesFacade {
 
 		if (this.sort) {
 			params.ordering = this.sort.direction === 'desc' ? `-${this.sort.active}` : this.sort.active;
+		}
+		if (this.searchTerm) {
+			params.search = this.searchTerm;
 		}
 
 		return params;
@@ -101,6 +105,18 @@ export class GamesFacade {
 		});
 		this.snackBarService.open(translation);
 		this.collectionService.addItem(game);
+	}
+
+	search(term: string): void {
+		this.searchTerm = term;
+		this.refreshGames();
+	}
+
+	cleanSearch(): void {
+		if (this.searchTerm !== '') {
+			this.searchTerm = '';
+			this.refreshGames();
+		}
 	}
 
 	destroySubscriptions(): void {
