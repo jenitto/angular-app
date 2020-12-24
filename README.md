@@ -18,7 +18,7 @@ Es un proyecto sin terminar, seguirá recibiendo features poco a poco... ;)
 [Live app](https://sergio-angular-app.netlify.app/)
 
 ## References
-Para desarrollar este proyecto me he basado en estos artículos para ciertas partes:
+Para desarrollar este proyecto me he basado en estos artículos para seguir una guía de estilo, mejorar la legibilidad del código y hacerla más optimizada.
 
 - [Angular OnPush Change Detection and Component Design - Avoid Common Pitfalls](https://blog.angular-university.io/onpush-change-detection-how-it-works/): Para mejorar el rendimiento de la aplicación y reducir el número de renderizados, es buena práctica cambiar el ChangeDetectionStrategy a OnPush para que sólo se rerenderice el componente al cambiar uno de sus @Input. Esto es útil combinado con el uso del pipe async (observable$ | async).
 - [Best practices for a clean and performant Angular application](https://medium.com/free-code-camp/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f): He intentado seguir estos patrones básicos para mejorar la legibilidad del código y el rendimiento. Me han parecido especialmente útiles la cancelación de las peticiones con takeUntil, los pipe operators, el trackByFn y el lazy load de los módulos.
