@@ -25,4 +25,14 @@ $block : 'platforms';
 		margin-top: $separation-24;
 		display: block;
 	}
+
+	&__header-image {
+		position: relative;
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		background-size: cover;
+		width: 100%;
+		height: 300px;
+	}
+
 }
