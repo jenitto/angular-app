@@ -57,7 +57,7 @@ export class NavbarComponent extends SidenavOpenerService implements OnInit {
 		const dialogConfig = dialogSimpleFactory({
 			icon: 'icon-logo-cloud',
 			title: `Proyecto de prueba Angular`,
-			description: 'Developed by @sergiosantiagop',
+			description: 'Developed by @ssantiagoperez',
 			textAlign: 'center',
 			showCancelButton: false,
 			actions: [{ label: this.translate.instant('BUTTONS.CLOSE'), id: 1 }]

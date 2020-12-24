@@ -8,6 +8,7 @@ import { CardGameMenuComponent } from 'src/app/shared/lib/components/cards/card-
 import { CardGameComponent } from 'src/app/shared/lib/components/cards/card-game/card-game.component';
 import { CardPlatformMenuComponent } from 'src/app/shared/lib/components/cards/card-platform/card-platform-menu/card-platform-menu.component';
 import { CardPlatformComponent } from 'src/app/shared/lib/components/cards/card-platform/card-platform.component';
+import { DialogInputComponent } from 'src/app/shared/lib/components/dialogs/dialog-input/dialog-input.component';
 import { DialogSimpleComponent } from 'src/app/shared/lib/components/dialogs/dialog-simple/dialog-simple.component';
 import { EmptyComponent } from 'src/app/shared/lib/components/empty/empty.component';
 import { MenuButtonsComponent } from 'src/app/shared/lib/components/menu-buttons/menu-buttons.component';
@@ -53,6 +54,7 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		AutofocusDirective,
 		AutoLoadDirective,
 		DialogSimpleComponent,
+		DialogInputComponent,
 		SidenavToolbarComponent,
 		SpinnerComponent,
 		SelectComponent,
@@ -79,6 +81,7 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		AutofocusDirective,
 		AutoLoadDirective,
 		DialogSimpleComponent,
+		DialogInputComponent,
 		SidenavToolbarComponent,
 		SpinnerComponent,
 		SelectComponent,
@@ -93,6 +96,7 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 	],
 	entryComponents: [
 		DialogSimpleComponent,
+		DialogInputComponent,
 	]
 })
 export class LibModule { }

@@ -1,0 +1,39 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<form [formGroup]="formDialog"
+			(submit)="onCloseWithText()">
+	<div mat-dialog-content>
+		<mat-form-field class="dialog-input__input"
+										floatLabel="never">
+			<input #inputDialog
+						 appAutoSelect
+						 [enabled]="selectText"
+						 formControlName="inputText"
+						 [placeholder]="data.placeholder"
+						 matInput
+						 required>
+			<mat-error>
+				<span *ngIf="formDialog.get('inputText').hasError('required')">
+					{{ 'CREATE_UNIT.FORM.NAME_REQUIRED' | translate }}
+				</span>
+				<span *ngIf="formDialog.get('inputText').hasError('mintrimlength')">
+					{{ 'CREATE_UNIT.FORM.NAME_MIN_LENGTH' | translate:{count: data?.minLength} }}
+				</span>
+				<span *ngIf="formDialog.get('inputText').hasError('maxlength')">
+					{{ 'CREATE_UNIT.FORM.NAME_MAX_LENGTH' | translate }}
+				</span>
+			</mat-error>
+		</mat-form-field>
+
+	</div>
+	<div mat-dialog-actions
+			 class="dialog-input__actions">
+		<button mat-button
+						type="button"
+						class="dialog-input__actions--cancel utils--uppercase"
+						(click)="onCancelClick()">{{ 'BUTTONS.CANCEL' | translate }}</button>
+		<button type="submit"
+						mat-button
+						[disabled]="formDialog.invalid"
+						class="dialog-input__actions--accept utils--uppercase">{{data.action}}</button>
+	</div>
+</form>

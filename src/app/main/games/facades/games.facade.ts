@@ -1,15 +1,19 @@
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Sort } from '@angular/material/sort';
 import { TranslateService } from '@ngx-translate/core';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { filter, tap } from 'rxjs/operators';
 import { RouteParams } from 'src/app/core/interfaces/route.interface';
 import { SnackBarService } from 'src/app/core/services/snack-bar.service';
+import { DialogInputComponent } from 'src/app/shared/lib/components/dialogs/dialog-input/dialog-input.component';
+import { dialogInputFactory } from 'src/app/shared/lib/components/dialogs/dialog-input/dialog-input.factory';
 import { CollectionType } from 'src/app/shared/lib/interfaces/collection-type.enum';
 import { ConfirmAction } from 'src/app/shared/lib/interfaces/confirm-actions.enum';
 import { Game } from 'src/app/shared/lib/interfaces/rawg/game.interface';
 import { CollectionService } from 'src/app/shared/lib/services/collection.service';
 import { ConfirmCatalogueService } from 'src/app/shared/lib/services/confirm-catalogue.service';
+
 
 const GAMES_PAGE_SIZE = 20;
 
@@ -35,6 +39,7 @@ export class GamesFacade {
 		private confirmCatalogueService: ConfirmCatalogueService,
 		private snackBarService: SnackBarService,
 		private translate: TranslateService,
+		private dialog: MatDialog,
 	) {
 		this.games$ = this.collectionService.collection$ as Observable<any[]>;
 		this.areGamesLoading$ = this.collectionService.isCollectionLoading$;
@@ -66,6 +71,18 @@ export class GamesFacade {
 		this.collectionService.refreshGames(this.getRouteParams());
 	}
 
+	search(term: string): void {
+		this.searchTerm = term;
+		this.refreshGames();
+	}
+
+	cleanSearch(): void {
+		if (this.searchTerm !== '') {
+			this.searchTerm = '';
+			this.refreshGames();
+		}
+	}
+
 	changeSort(sort: Sort): void {
 		this.sort = sort;
 		this.sortSource.next(sort);
@@ -89,34 +106,30 @@ export class GamesFacade {
 			).subscribe();
 	}
 
-	updateGame(game: Game): void {
-		const translation = this.translate.instant('ITEM.UPDATED', {
-			itemType: CollectionType.GAMES,
-			itemName: game.name
-		});
-		this.snackBarService.open(translation);
-		this.collectionService.updateItem(game.id, game);
-	}
+	renameGame(game: Game): void {
+		const newTitle = this.translate.instant('ITEM.RENAME', { itemName: game.name });
+		const newAction = this.translate.instant('BUTTONS.RENAME');
+		const newInputText = game.name;
+		const data = {
+			title: newTitle,
+			action: newAction,
+			inputText: newInputText,
+			minLength: 3,
+			maxLength: 255,
+			isEdit: true
+		};
+		const dialogConfig = dialogInputFactory(data);
 
-	addGame(game: Game): void {
-		const translation = this.translate.instant('ITEM.CREATED', {
-			itemType: CollectionType.GAMES,
-			itemName: game.name
-		});
-		this.snackBarService.open(translation);
-		this.collectionService.addItem(game);
-	}
-
-	search(term: string): void {
-		this.searchTerm = term;
-		this.refreshGames();
-	}
-
-	cleanSearch(): void {
-		if (this.searchTerm !== '') {
-			this.searchTerm = '';
-			this.refreshGames();
-		}
+		this.dialog.open(DialogInputComponent, dialogConfig)
+			.afterClosed()
+			.pipe(
+				filter((result: boolean) => !!result),
+				tap((result: any) => {
+					const newGameData = { ...game, name: result.text };
+					this.collectionService.updateItem(game.id, newGameData);
+					this.snackBarService.open(this.translate.instant('ITEM.RENAMED', { itemName: newInputText }));
+				})
+			).subscribe();
 	}
 
 	destroySubscriptions(): void {

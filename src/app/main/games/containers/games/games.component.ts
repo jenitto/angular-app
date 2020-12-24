@@ -76,7 +76,7 @@ export class GamesComponent extends SidenavOpenerService implements OnInit, OnDe
 	}
 
 	onRenameGame(game: Game): void {
-		// TO DO
+		this.gamesFacade.renameGame(game);
 	}
 
 	onDuplicateGame(game: Game): void {
