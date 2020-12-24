@@ -39,6 +39,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 ## i18n - Internacionalización
 
+Más info -> [Scripts i18n](https://github.com/jenitto/angular-app/tree/main/src/scripts)
+
 **Generar archivo de diferencias entre español e inglés para traducir**
 
 Para generar las cadenas pendientes de traducir hay que lanzar el siguiente comando, y este nos generará en src/scripts/i18n el archivo valuesToTranslate.json, que será enviado a traducir.
