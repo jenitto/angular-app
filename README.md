@@ -17,6 +17,13 @@ Es un proyecto sin terminar, seguirá recibiendo features poco a poco... ;)
 
 [Live app](https://sergio-angular-app.netlify.app/)
 
+## References
+Para desarrollar este proyecto me he basado en estos artículos para ciertas partes:
+
+- [Angular OnPush Change Detection and Component Design - Avoid Common Pitfalls](https://blog.angular-university.io/onpush-change-detection-how-it-works/): Para mejorar el rendimiento de la aplicación y reducir el número de renderizados, es buena práctica cambiar el ChangeDetectionStrategy a OnPush para que sólo se rerenderice el componente al cambiar uno de sus @Input. Esto es útil combinado con el uso del pipe async (observable$ | async).
+- [Best practices for a clean and performant Angular application](https://medium.com/free-code-camp/best-practices-for-a-clean-and-performant-angular-application-288e7b39eb6f): He intentado seguir estos patrones básicos para mejorar la legibilidad del código y el rendimiento. Me han parecido especialmente útiles la cancelación de las peticiones con takeUntil, los pipe operators, el trackByFn y el lazy load de los módulos.
+- [Best practices: Building Angular Services using Facade design pattern for complex systems](https://medium.com/@balramchavan/best-practices-building-angular-services-using-facade-design-pattern-for-complex-systems-d8c516cb95eb): He aplicado esta arquitectura para cada módulo de la aplicación, en el que un container (o smart component) está suscrito a los datos de una facade, que está conectada a X servicios, y lo único que hace es lanzarle peticiones, de forma que el código del container queda muy legible y permite la reutilización de container y facade. Esto combinado con ChangeDetectionStrategy a OnPush y los pipe async es una buena forma de conseguir una app centralizada con buen rendimiento.
+
 ## Development server
 
 Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
