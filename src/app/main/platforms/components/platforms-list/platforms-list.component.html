@@ -10,8 +10,8 @@
 		</app-card-platform>
 	</div>
 	<app-empty *ngIf="platforms && !platforms.length"
-						 icon="file">
-		<ng-container title>{{ 'EMPTY.PLATFORMS_TITLE' | translate }}</ng-container>
-		<ng-container subtitle>{{ 'EMPTY.PLATFORMS_SUBTITLE' | translate }}</ng-container>
+						 icon="search">
+		<ng-container title>{{ 'EMPTY.TITLE' | translate:{itemType: 'platforms'} }}</ng-container>
+		<ng-container subtitle>{{ 'EMPTY.SUBTITLE' | translate }}</ng-container>
 	</app-empty>
 </div>

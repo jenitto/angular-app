@@ -10,6 +10,10 @@
 		"RENAME": "rename",
 		"SAVE": "save"
 	},
+	"EMPTY": {
+		"TITLE": "No {itemType, select, platforms{plataforms} games{games} other{items}} found",
+		"SUBTITLE": "Try a new search request"
+	},
 	"ERRORS": {
 		"GO_HOME": "Go back to home",
 		"NOT_FOUND_SUBTITLE": "The resource you are looking for does not exist.",

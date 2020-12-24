@@ -10,6 +10,10 @@
 		"RENAME": "renombrar",
 		"SAVE": "guardar"
 	},
+	"EMPTY": {
+		"TITLE": "No se han encontrado {itemType, select, platforms{plataformas} games{juegos} other{items}}",
+		"SUBTITLE": "Prueba a hacer otra búsqueda"
+	},
 	"ERRORS": {
 		"GO_HOME": "Volver al inicio",
 		"NOT_FOUND_SUBTITLE": "El recurso que estás buscando no existe.",

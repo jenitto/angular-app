@@ -11,8 +11,8 @@
 		</app-card-game>
 	</div>
 	<app-empty *ngIf="games && !games.length"
-						 icon="file">
-		<ng-container title>{{ 'EMPTY.GAMES_TITLE' | translate }}</ng-container>
-		<ng-container subtitle>{{ 'EMPTY.GAMES_SUBTITLE' | translate }}</ng-container>
+						 icon="search">
+		<ng-container title>{{ 'EMPTY.TITLE' | translate:{itemType: 'games'} }}</ng-container>
+		<ng-container subtitle>{{ 'EMPTY.SUBTITLE' | translate }}</ng-container>
 	</app-empty>
 </div>
