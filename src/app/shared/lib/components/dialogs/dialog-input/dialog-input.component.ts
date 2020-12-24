@@ -14,7 +14,6 @@ export class DialogInputComponent implements OnInit {
 	@ViewChild('inputDialog', { static: true }) inputDialog: ElementRef;
 
 	public formDialog: FormGroup;
-	public selectText = false;
 
 	constructor(
 		public dialogRef: MatDialogRef<DialogInputComponent>,
@@ -24,13 +23,6 @@ export class DialogInputComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.createForm();
-		this.checkIfSelectText();
-	}
-
-	checkIfSelectText(): void {
-		if (this.data.selectText) {
-			this.selectText = true;
-		}
 	}
 
 	createForm(): void {

@@ -15,6 +15,11 @@
 		"NOT_FOUND_SUBTITLE": "The resource you are looking for does not exist.",
 		"NOT_FOUND_TITLE": "Not found"
 	},
+	"FORM_ERRORS": {
+		"NAME_MAX_LENGTH": "The name must contain less than 255 characters",
+		"NAME_MIN_LENGTH": "The name must contain at least 3 characters",
+		"NAME_REQUIRED": "The name is mandatory"
+	},
 	"ITEM": {
 		"ARE_YOU_SURE_DELETE": "You are permanently deleting it, once deleted, you will not be able to recover it. Are you sure?",
 		"CREATED": "{itemType, select, platforms{The platform} games{The game} other{The item}} \"{itemName}\" {itemType, select, platforms{has been created correctly} other{has been created correctly}}",
@@ -28,11 +33,6 @@
 		"ADD_PLATFORM": "Add platform",
 		"DELETE_IMAGE": "Delete image",
 		"EDIT_PLATFORM": "Edit platform",
-		"FORM": {
-			"NAME_MAX_LENGTH": "The name must contain less than 255 characters",
-			"NAME_MIN_LENGTH": "The name must contain at least 3 characters",
-			"NAME_REQUIRED": "The name is mandatory"
-		},
 		"NAME": "Platform name",
 		"NEW_PLATFORM": "New platform"
 	},

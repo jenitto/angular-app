@@ -6,20 +6,19 @@
 										floatLabel="never">
 			<input #inputDialog
 						 appAutoSelect
-						 [enabled]="selectText"
 						 formControlName="inputText"
 						 [placeholder]="data.placeholder"
 						 matInput
 						 required>
 			<mat-error>
 				<span *ngIf="formDialog.get('inputText').hasError('required')">
-					{{ 'CREATE_UNIT.FORM.NAME_REQUIRED' | translate }}
+					{{ 'FORM_ERRORS.NAME_REQUIRED' | translate }}
 				</span>
 				<span *ngIf="formDialog.get('inputText').hasError('mintrimlength')">
-					{{ 'CREATE_UNIT.FORM.NAME_MIN_LENGTH' | translate:{count: data?.minLength} }}
+					{{ 'FORM_ERRORS.NAME_MIN_LENGTH' | translate:{count: data?.minLength} }}
 				</span>
 				<span *ngIf="formDialog.get('inputText').hasError('maxlength')">
-					{{ 'CREATE_UNIT.FORM.NAME_MAX_LENGTH' | translate }}
+					{{ 'FORM_ERRORS.NAME_MAX_LENGTH' | translate }}
 				</span>
 			</mat-error>
 		</mat-form-field>

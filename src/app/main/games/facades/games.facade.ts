@@ -116,7 +116,7 @@ export class GamesFacade {
 			inputText: newInputText,
 			minLength: 3,
 			maxLength: 255,
-			isEdit: true
+			isEdit: true,
 		};
 		const dialogConfig = dialogInputFactory(data);
 

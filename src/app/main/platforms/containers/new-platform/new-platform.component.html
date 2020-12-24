@@ -30,13 +30,13 @@
 									 required>
 						<mat-error>
 							<span *ngIf="platformForm.get('name').hasError('required')">
-								{{ 'NEW_PLATFORM.FORM.NAME_REQUIRED' | translate }}
+								{{ 'FORM_ERRORS.NAME_REQUIRED' | translate }}
 							</span>
 							<span *ngIf="platformForm.get('name').hasError('mintrimlength')">
-								{{ 'NEW_PLATFORM.FORM.NAME_MIN_LENGTH' | translate }}
+								{{ 'FORM_ERRORS.NAME_MIN_LENGTH' | translate }}
 							</span>
 							<span *ngIf="platformForm.get('name').hasError('maxlength')">
-								{{ 'NEW_PLATFORM.FORM.NAME_MAX_LENGTH' | translate }}
+								{{ 'FORM_ERRORS.NAME_MAX_LENGTH' | translate }}
 							</span>
 						</mat-error>
 					</mat-form-field>
