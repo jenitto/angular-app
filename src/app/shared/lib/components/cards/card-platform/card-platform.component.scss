@@ -32,7 +32,13 @@ $block: "card-platform";
 		margin: 10px auto $separation-16;
 		display: flex;
     align-items: center;
-    justify-content: center;
+		justify-content: center;
+		transition: opacity .5s;
+		opacity: 0;
+
+		&.ng-lazyloaded {
+			opacity: 1;
+		}
 
 		&.mat-card-avatar {
 			height: 120px;

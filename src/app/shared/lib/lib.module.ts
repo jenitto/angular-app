@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { CardGameMenuComponent } from 'src/app/shared/lib/components/cards/card-game/card-game-menu/card-game-menu.component';
 import { CardGameComponent } from 'src/app/shared/lib/components/cards/card-game/card-game.component';
@@ -38,7 +39,8 @@ import { TranslateCutPipe } from './pipes/translate-cut.pipe';
 		ReactiveFormsModule,
 		RouterModule,
 		InfiniteScrollModule,
-		TranslateModule
+		TranslateModule,
+		LazyLoadImageModule,
 	],
 	declarations: [
 		SafeStylePipe,

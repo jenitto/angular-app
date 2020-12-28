@@ -6,7 +6,7 @@
 		<!-- <div class="card-game__label"></div> -->
 		<img *ngIf="game.background_image"
 				 class="card-game__image"
-				 [src]="game.background_image" />
+				 [lazyLoad]="game.background_image" />
 		<div *ngIf="!game?.background_image"
 				 class="card-game__no-image"
 				 [ngStyle]="{ 'background-color': game?.name | nameToColors }">

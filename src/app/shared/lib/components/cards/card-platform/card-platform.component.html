@@ -11,7 +11,7 @@
 			<img *ngIf="platform?.image_background"
 					 mat-card-avatar
 					 class="card-platform__header-image"
-					 [src]="platform.image_background" />
+					 [lazyLoad]="platform.image_background" />
 			<div *ngIf="!platform?.image_background"
 					 mat-card-avatar
 					 class="card-platform__header-image"

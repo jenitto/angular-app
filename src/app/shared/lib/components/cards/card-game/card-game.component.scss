@@ -31,7 +31,14 @@ $block: "card-game";
 		object-fit: cover;
 		height: 164px;
 		width: 100%;
+		transition: opacity .5s;
+		opacity: 0;
+
+		&.ng-lazyloaded {
+			opacity: 1;
+		}
 	}
+
 
 	&__no-image {
 		height: 164px;
