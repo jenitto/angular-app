@@ -14,7 +14,7 @@
 					 [lazyLoad]="platform.image_background" />
 			<div *ngIf="!platform?.image_background"
 					 mat-card-avatar
-					 class="card-platform__header-image"
+					 class="card-platform__header-image card-platform__header-image--no-image"
 					 [ngStyle]="{ 'background-color': platform?.name | nameToColors }">
 				<span class="card-platform__platform-abr">
 					{{ platform?.name | firstLetter }}

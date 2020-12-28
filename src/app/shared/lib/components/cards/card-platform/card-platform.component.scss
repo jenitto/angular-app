@@ -46,6 +46,10 @@ $block: "card-platform";
 			background-position: center center;
 			user-select: none;
 		}
+
+		&--no-image {
+			opacity: 1;
+		}
 	}
 
 	&__platform-abr {
